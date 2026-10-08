@@ -151,14 +151,6 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .map-svg{width:100%;height:auto;border-radius:var(--radius);display:block}
 .map-wrap{display:flex;gap:28px;align-items:stretch;margin:8px 0 8px}
 .map-wrap .map-svg{flex:1;min-width:0}
-/* 地图四角装饰线 */
-.map-frame{position:relative;flex:1;min-width:0}
-.map-frame::before,.map-frame::after{content:"";position:absolute;width:28px;height:28px;border:2px solid rgba(232,150,58,.65);z-index:2;pointer-events:none}
-.map-frame::before{top:10px;left:10px;border-right:none;border-bottom:none;border-top-left-radius:8px}
-.map-frame::after{bottom:10px;right:10px;border-left:none;border-top:none;border-bottom-right-radius:8px}
-.map-frame .corner-tl,.map-frame .corner-br{position:absolute;width:28px;height:28px;z-index:2;pointer-events:none}
-.map-frame .corner-tl{top:10px;right:10px;border:2px solid rgba(232,150,58,.65);border-left:none;border-bottom:none;border-top-right-radius:8px}
-.map-frame .corner-br{bottom:10px;left:10px;border:2px solid rgba(232,150,58,.65);border-right:none;border-top:none;border-bottom-left-radius:8px}
 .map-legend{flex:0 0 240px;background:linear-gradient(160deg,#23272B,#1A1E1B);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative;overflow:hidden}
 .map-legend::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.07),transparent 60%);pointer-events:none}
 .legend-item{display:flex;gap:12px;align-items:flex-start;position:relative}
