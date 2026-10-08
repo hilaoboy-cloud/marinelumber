@@ -110,9 +110,12 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 /* Trust bar */
 .trustbar{background:#fff;border-bottom:1px solid var(--border);padding:44px 0}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.trust-item{display:flex;align-items:center;gap:14px;justify-content:center}
-.trust-icon{flex:none;width:44px;height:44px;border-radius:50%;background:var(--navy-900);display:flex;align-items:center;justify-content:center;color:var(--amber)}
-.trust-icon svg{width:22px;height:22px}
+.trust-item{display:flex;align-items:center;gap:14px;justify-content:center;transition:transform .25s ease}
+.trust-item:hover{transform:translateY(-2px)}
+.trust-icon{flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#1E2328,#111315);box-shadow:0 4px 12px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--amber);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.trust-item:hover .trust-icon{background:linear-gradient(135deg,var(--timber),var(--amber));color:#fff;transform:scale(1.1) rotate(4deg);box-shadow:0 8px 20px rgba(169,90,42,.35);border-color:transparent}
+.trust-icon svg{width:22px;height:22px;transition:transform .3s ease}
+.trust-item:hover .trust-icon svg{transform:scale(1.1)}
 .trust-text{font-weight:600;font-size:16.5px;color:var(--navy-700);line-height:1.35}
 /* Cards */
 .card-grid{display:grid;gap:28px}
@@ -144,7 +147,10 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .loc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
 .loc-card h3{font-size:20px;margin-bottom:8px}
 .loc-card p{color:var(--muted);font-size:15.5px}
-.loc-pin{width:44px;height:44px;border-radius:50%;background:var(--navy-900);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.loc-pin{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#1E2328,#111315);box-shadow:0 4px 12px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.loc-card:hover .loc-pin{background:linear-gradient(135deg,var(--timber),var(--amber));transform:scale(1.12) rotate(-6deg);box-shadow:0 8px 20px rgba(169,90,42,.35);border-color:transparent}
+.loc-card:hover .loc-pin svg{stroke:#fff}
+.loc-pin svg{transition:all .3s ease}
 .map-svg{width:100%;height:auto;border-radius:var(--radius);display:block}
 .map-wrap{display:flex;gap:28px;align-items:stretch;margin:8px 0 8px}
 .map-wrap .map-svg{flex:1;min-width:0}
@@ -180,8 +186,10 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .why-5{display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
 .why-5 .why-card{grid-column:span 2}
 .why-5 .why-card:nth-child(4),.why-5 .why-card:nth-child(5){grid-column:span 3}
-.why-icon{width:56px;height:56px;border-radius:50%;background:var(--navy-900);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.why-icon svg{width:28px;height:28px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.why-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#1E2328,#111315);box-shadow:0 4px 14px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.why-icon svg{width:28px;height:28px;stroke:var(--amber);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:all .3s ease}
+.why-card:hover .why-icon{background:linear-gradient(135deg,var(--timber),var(--amber));transform:scale(1.1) translateY(-3px) rotate(5deg);box-shadow:0 10px 24px rgba(169,90,42,.35);border-color:transparent}
+.why-card:hover .why-icon svg{stroke:#fff;transform:scale(1.08)}
 .why-card h3{font-size:21px;margin-bottom:10px}
 .why-card p{color:var(--muted);font-size:16px}
 /* Steps */
@@ -233,7 +241,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(18,20,21,.88) 0%,rgba(26,29,30,.78) 55%,rgba(16,18,19,.85) 100%);
+  background:linear-gradient(180deg,rgba(18,20,21,.62) 0%,rgba(18,20,21,.52) 55%,rgba(18,20,21,.70) 100%);
   z-index:1;
   pointer-events:none;
 }

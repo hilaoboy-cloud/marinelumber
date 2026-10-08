@@ -113,23 +113,84 @@
 <path d="M323,17L336,19L332,20L324,21L313,21L314,21L321,21L328,22L332,21L333,22L331,24L336,23L347,22L353,22L354,23L346,25L344,26L338,26L343,26L340,28L338,30L338,33L341,35L338,35L334,36L338,37L339,39L336,40L339,42L334,42L337,43L336,44L333,45L330,45L333,46L333,48L329,46L328,47L331,48L333,49L334,52L330,52L329,51L326,50L327,51L324,53L330,53L333,53L327,55L321,57L315,58L313,58L311,59L308,62L303,64L302,64L299,65L296,65L294,67L294,69L293,71L290,73L290,75L290,77L288,80L285,80L282,78L278,78L276,76L275,74L271,70L270,69L270,66L267,64L267,62L266,61L268,58L271,57L272,56L273,54L270,54L269,55L267,55L265,54L264,53L265,51L267,51L272,52L268,50L266,49L264,50L262,49L264,46L263,45L262,44L259,41L256,40L256,39L251,37L246,37L241,37L235,37L233,36L229,35L235,34L239,34L230,33L225,32L226,31L234,30L241,28L242,27L236,26L238,25L246,23L249,23L248,22L253,21L259,21L266,21L268,22L274,20L279,21L282,21L286,22L281,21L281,20L288,18L296,18L298,17L306,17L323,17Z" fill="#2E3532" stroke="#55605A" stroke-width=".8" opacity=".95"/>
 <style>
 .pin-glow{animation:pinPulse 2.5s ease-in-out infinite}
-@keyframes pinPulse{0%,100%{opacity:.3}50%{opacity:.85}}
-@media (prefers-reduced-motion:reduce){.pin-glow{animation:none;opacity:.5}}
+@keyframes pinPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.25)}}
+.route-ocean{stroke:#C8944A;stroke-width:1.6;fill:none;stroke-dasharray:6,5;animation:dashFlow 20s linear infinite;opacity:.75}
+.route-domestic{stroke:#A95A2A;stroke-width:1.2;fill:none;stroke-dasharray:3,3;animation:dashFlow 15s linear infinite;opacity:.6}
+.route-glow{stroke:#C8944A;stroke-width:4;fill:none;opacity:.12}
+@keyframes dashFlow{to{stroke-dashoffset:-200}}
+@media (prefers-reduced-motion:reduce){.pin-glow,.route-ocean,.route-domestic{animation:none}}
 </style>
-<circle class="pin-glow" cx="121" cy="119" r="12" fill="#C8944A" opacity="0.3"/>
-<circle cx="121" cy="119" r="5" fill="#C8944A"/>
-<circle cx="121" cy="119" r="2" fill="#fff"/>
-<text x="121" y="98" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text>
-<circle class="pin-glow" cx="380" cy="103" r="12" fill="#C8944A" opacity="0.3"/>
+
+<!-- ================= 国际跨洋主干航线 (International Ocean Shipping Corridors) ================= -->
+<!-- 1. 青岛(634,144) -> 越太平洋航线 -> 俄勒冈(121,119) [跨180度经线分为西段和东段弧线] -->
+<!-- 亚洲西太平洋出海段 (青岛 -> 东向太平洋) -->
+<path class="route-glow" d="M634,144 Q700,118 760,115"/>
+<path class="route-ocean" d="M634,144 Q700,118 760,115"/>
+<!-- 北美东太平洋入港段 (西向太平洋 -> 俄勒冈波特兰/图拉丁港) -->
+<path class="route-glow" d="M0,115 Q60,112 121,119"/>
+<path class="route-ocean" d="M0,115 Q60,112 121,119"/>
+
+<!-- 2. 青岛(634,144) -> 欧亚航线(经马六甲/苏伊士) -> 伦敦(380,103) -->
+<path class="route-glow" d="M634,144 Q560,210 490,200 Q430,170 380,103"/>
+<path class="route-ocean" d="M634,144 Q560,210 490,200 Q430,170 380,103"/>
+
+<!-- 3. 巴西(277,314) -> 大西洋原料供应链 -> 北美东海岸/西海岸(121,119) -->
+<path class="route-glow" d="M277,314 Q230,240 180,170 Q145,145 121,119"/>
+<path class="route-ocean" d="M277,314 Q230,240 180,170 Q145,145 121,119"/>
+
+<!-- 4. 巴西(277,314) -> 南大西洋-欧洲航线 -> 伦敦(380,103) -->
+<path class="route-glow" d="M277,314 Q320,220 380,103"/>
+<path class="route-ocean" d="M277,314 Q320,220 380,103"/>
+
+<!-- ================= 北美/中国各省市与内陆干线网络 (State & Domestic Logistics Lines) ================= -->
+<!-- 北美西海岸与内陆物流干线 (Tualatin Hub 辐射西雅图、加州长滩、芝加哥枢纽) -->
+<path class="route-domestic" d="M121,119 L120,98"/>  <!-- Tualatin -> Seattle/Tacoma -->
+<path class="route-domestic" d="M121,119 L125,148"/> <!-- Tualatin -> LA/Long Beach Port -->
+<path class="route-domestic" d="M121,119 Q150,118 182,126"/> <!-- Tualatin -> Chicago Midwest Hub -->
+<path class="route-domestic" d="M182,126 L208,124"/> <!-- Chicago -> New York/NJ Ports -->
+<path class="route-domestic" d="M182,126 L172,168"/> <!-- Chicago -> Houston/Gulf Coast -->
+
+<!-- 中国沿海与主要制造腹地干线 (青岛辐射环渤海、长三角、大湾区) -->
+<path class="route-domestic" d="M634,144 L626,128"/> <!-- 青岛 -> 京津冀/渤海湾 -->
+<path class="route-domestic" d="M634,144 L639,165"/> <!-- 青岛 -> 上海/长三角港口群 -->
+<path class="route-domestic" d="M639,165 L630,186"/> <!-- 长三角 -> 深圳/大湾区 -->
+
+<!-- 省市/辅节点 (Domestic Hubs) -->
+<circle cx="120" cy="98" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="125" cy="148" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="182" cy="126" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="208" cy="124" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="172" cy="168" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="626" cy="128" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="639" cy="165" r="2.5" fill="#C8944A" opacity="0.8"/>
+<circle cx="630" cy="186" r="2.5" fill="#C8944A" opacity="0.8"/>
+
+<!-- ================= 四大核心枢纽标注 (Core Hubs) ================= -->
+<!-- 1. Tualatin, Oregon (USA HQ) -->
+<circle class="pin-glow" cx="121" cy="119" r="14" fill="#C8944A"/>
+<circle cx="121" cy="119" r="6" fill="#C8944A"/>
+<circle cx="121" cy="119" r="2.5" fill="#fff"/>
+<text x="121" y="94" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text>
+<text x="121" y="106" text-anchor="middle" fill="#C8944A" font-size="9.5" font-weight="600" font-family="Barlow,Inter,sans-serif">GLOBAL HQ &amp; FACTORY</text>
+
+<!-- 2. London (Europe) -->
+<circle class="pin-glow" cx="380" cy="103" r="12" fill="#C8944A"/>
 <circle cx="380" cy="103" r="5" fill="#C8944A"/>
 <circle cx="380" cy="103" r="2" fill="#fff"/>
-<text x="380" y="82" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">London</text>
-<circle class="pin-glow" cx="634" cy="144" r="12" fill="#C8944A" opacity="0.3"/>
-<circle cx="634" cy="144" r="5" fill="#C8944A"/>
-<circle cx="634" cy="144" r="2" fill="#fff"/>
-<text x="634" y="122" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Qingdao, China</text>
-<circle class="pin-glow" cx="277" cy="314" r="12" fill="#C8944A" opacity="0.3"/>
-<circle cx="277" cy="314" r="5" fill="#C8944A"/>
-<circle cx="277" cy="314" r="2" fill="#fff"/>
-<text x="277" y="342" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Brazil</text>
+<text x="380" y="80" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">London</text>
+<text x="380" y="91" text-anchor="middle" fill="#C8944A" font-size="9.5" font-weight="600" font-family="Barlow,Inter,sans-serif">EUROPE SUPPORT</text>
+
+<!-- 3. Qingdao, China (Asia Manufacturing) -->
+<circle class="pin-glow" cx="634" cy="144" r="14" fill="#C8944A"/>
+<circle cx="634" cy="144" r="6" fill="#C8944A"/>
+<circle cx="634" cy="144" r="2.5" fill="#fff"/>
+<text x="634" y="118" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Qingdao, China</text>
+<text x="634" y="130" text-anchor="middle" fill="#C8944A" font-size="9.5" font-weight="600" font-family="Barlow,Inter,sans-serif">MANUFACTURING BASE</text>
+
+<!-- 4. Brazil (South America Facility) -->
+<circle class="pin-glow" cx="277" cy="314" r="14" fill="#C8944A"/>
+<circle cx="277" cy="314" r="6" fill="#C8944A"/>
+<circle cx="277" cy="314" r="2.5" fill="#fff"/>
+<text x="277" y="340" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Santa Catarina, Brazil</text>
+<text x="277" y="352" text-anchor="middle" fill="#C8944A" font-size="9.5" font-weight="600" font-family="Barlow,Inter,sans-serif">LUMBER &amp; MANUFACTURING</text>
 </svg>
