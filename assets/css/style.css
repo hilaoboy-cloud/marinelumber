@@ -265,7 +265,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .dept-card p{color:var(--muted);font-size:16px;margin-bottom:6px}
 /* Footer — premium gray-black */
 .site-footer{background:#1A1E1B;color:rgba(255,255,255,.68);padding:64px 0 0;font-size:15px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1.1fr;gap:64px;margin-bottom:40px}
+.footer-grid{display:grid;grid-template-columns:1.7fr 0.85fr 1.05fr;gap:48px;margin-bottom:40px}
 .footer-brand p{margin:18px 0 16px;max-width:300px;line-height:1.6}
 .site-footer h4{color:#fff;font-size:16px;font-family:var(--font-h);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
 .site-footer ul{list-style:none}
@@ -280,7 +280,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .socials svg{width:24px;height:24px;fill:currentColor}
 .footer-certs{margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.45);letter-spacing:.03em;line-height:1.6}
 .footer-contact li{margin-bottom:10px;line-height:1.6}
-.site-footer .footer-grid>div ul li{margin-bottom:10px;line-height:1.6}
+.site-footer .footer-grid>div ul li{margin-bottom:7px;line-height:1.55}
 /* Cookie banner + mobile sticky bar */
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:300;background:var(--navy-900);color:#fff;padding:14px 0;font-size:14.5px;display:none;box-shadow:0 -4px 20px rgba(0,0,0,.3)}
 .cookie-banner.show{display:block}
