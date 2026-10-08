@@ -232,7 +232,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(11,31,51,.65) 0%,rgba(11,31,51,.55) 100%);
+  background:linear-gradient(180deg,rgba(11,31,51,.78) 0%,rgba(11,31,51,.72) 100%);
   z-index:1;
   pointer-events:none;
 }
