@@ -1,7 +1,7 @@
 <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marine Lumber Co. global manufacturing network map" style="width:100%;height:auto;display:block">
 <defs>
 <linearGradient id="mapbg" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#163A59"/><stop offset="1" stop-color="#0B1F33"/>
+<stop offset="0" stop-color="#24292E"/><stop offset="1" stop-color="#111315"/>
 </linearGradient>
 <radialGradient id="sheen" cx=".5" cy="0" r="1">
 <stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/>
