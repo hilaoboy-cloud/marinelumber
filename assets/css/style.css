@@ -55,6 +55,13 @@ h3{font-size:28px;line-height:36px;font-weight:600}
 .site-header.shrink .nav-inner{height:64px}
 .brand{display:flex;align-items:center;gap:12px;color:#fff!important}
 .brand-mark{width:40px;height:40px;flex:none}
+.brand-logo{height:44px;width:auto;display:block;flex:none}
+/* Real photos replacing placeholders */
+img.photo-img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-img.ratio-43{aspect-ratio:4/3}
+.photo-img.ratio-169{aspect-ratio:16/9}
+.photo-img.ratio-11{aspect-ratio:1/1}
+.tile img.photo-img{position:absolute;inset:0}
 .brand-name{font-family:var(--font-h);font-weight:700;font-size:20px;letter-spacing:.06em;line-height:1.1}
 .brand-name small{display:block;font-size:11px;font-weight:600;letter-spacing:.28em;color:var(--amber)}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
