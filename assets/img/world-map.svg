@@ -1,7 +1,7 @@
 <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marine Lumber Co. global manufacturing network map" style="width:100%;height:auto;display:block">
 <defs>
 <linearGradient id="mapbg" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#23272B"/><stop offset=".5" stop-color="#1A1E1B"/><stop offset="1" stop-color="#141617"/>
+<stop offset="0" stop-color="#163A59"/><stop offset="1" stop-color="#0B1F33"/>
 </linearGradient>
 <radialGradient id="sheen" cx=".5" cy="0" r="1">
 <stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/>
@@ -116,20 +116,20 @@
 @keyframes pinPulse{0%,100%{opacity:.3}50%{opacity:.85}}
 @media (prefers-reduced-motion:reduce){.pin-glow{animation:none;opacity:.5}}
 </style>
-<circle class="pin-glow" cx="121" cy="119" r="12" fill="#E8963A" opacity="0.3"/>
-<circle cx="121" cy="119" r="5" fill="#E8963A"/>
+<circle class="pin-glow" cx="121" cy="119" r="12" fill="#C8944A" opacity="0.3"/>
+<circle cx="121" cy="119" r="5" fill="#C8944A"/>
 <circle cx="121" cy="119" r="2" fill="#fff"/>
-<text x="99" y="115" text-anchor="end" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text>
-<circle class="pin-glow" cx="380" cy="103" r="12" fill="#E8963A" opacity="0.3"/>
-<circle cx="380" cy="103" r="5" fill="#E8963A"/>
+<text x="121" y="98" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text>
+<circle class="pin-glow" cx="380" cy="103" r="12" fill="#C8944A" opacity="0.3"/>
+<circle cx="380" cy="103" r="5" fill="#C8944A"/>
 <circle cx="380" cy="103" r="2" fill="#fff"/>
-<text x="380" y="81" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">London</text>
-<circle class="pin-glow" cx="634" cy="144" r="12" fill="#E8963A" opacity="0.3"/>
-<circle cx="634" cy="144" r="5" fill="#E8963A"/>
+<text x="380" y="82" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">London</text>
+<circle class="pin-glow" cx="634" cy="144" r="12" fill="#C8944A" opacity="0.3"/>
+<circle cx="634" cy="144" r="5" fill="#C8944A"/>
 <circle cx="634" cy="144" r="2" fill="#fff"/>
-<text x="656" y="140" text-anchor="start" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Qingdao, China</text>
-<circle class="pin-glow" cx="277" cy="314" r="12" fill="#E8963A" opacity="0.3"/>
-<circle cx="277" cy="314" r="5" fill="#E8963A"/>
+<text x="634" y="122" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Qingdao, China</text>
+<circle class="pin-glow" cx="277" cy="314" r="12" fill="#C8944A" opacity="0.3"/>
+<circle cx="277" cy="314" r="5" fill="#C8944A"/>
 <circle cx="277" cy="314" r="2" fill="#fff"/>
-<text x="277" y="344" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Brazil</text>
+<text x="277" y="342" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Barlow,Inter,sans-serif">Brazil</text>
 </svg>
