@@ -190,7 +190,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .breadcrumbs{font-size:14px;color:var(--muted);padding:20px 0 0}
 .breadcrumbs a{color:var(--muted)}
 .breadcrumbs a:hover{color:var(--timber)}
-.page-hero{background:var(--navy-900);color:#fff;padding:72px 0;position:relative;overflow:hidden}
+.page-hero{background:linear-gradient(135deg,#121414 0%,#1A1E1B 60%,#22262B 100%);color:#fff;padding:72px 0;position:relative;overflow:hidden}
 .page-hero h1{color:#fff;margin-bottom:14px}
 .page-hero p{color:rgba(255,255,255,.82);font-size:19px;max-width:760px}
 /* Product page template */
@@ -253,7 +253,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .dept-card p{color:var(--muted);font-size:16px;margin-bottom:6px}
 /* Footer — premium gray-black */
 .site-footer{background:#1A1E1B;color:rgba(255,255,255,.68);padding:45px 0 0;font-size:15px}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:28px;margin-bottom:32px}
+.footer-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr 1.2fr;gap:28px;margin-bottom:32px}
 .footer-brand p{margin:18px 0 16px;max-width:300px;line-height:1.6}
 .site-footer h4{color:#fff;font-size:16px;font-family:var(--font-h);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
 .site-footer ul{list-style:none}
