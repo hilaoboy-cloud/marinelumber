@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request a Quote | Marine Lumber Co.</title>
-<meta name="description" content="Tell us what you ship and get crate, pallet or lumber options and pricing from a specialist.">
+<title>Request a Packaging Quote | Marine Lumber Co.</title>
+<meta name="description" content="Request a packaging quote from Marine Lumber Co. Submit product specifications, dimensions and handling requirements for custom crates, pallets, dunnage or lumber.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,8 +65,8 @@
 <div class="page-hero">
   <div class="container">
     <nav class="breadcrumbs" aria-label="Breadcrumb" style="padding:0;margin-bottom:16px"><a href="index.html" style="color:rgba(255,255,255,.7)">Home</a> <span aria-hidden="true">/</span> Request a Quote</nav>
-    <h1>Request a Quote</h1>
-    <p>Tell us what you ship. A packaging specialist will reply with options and pricing.</p>
+    <h1>Request a Packaging Quote</h1>
+    <p>Submit your product dimensions, handling requirements and logistics destination. A packaging specialist will review your specifications and provide design options and pricing.</p>
   </div>
 </div>
 <section>
@@ -102,14 +102,16 @@
               <div class="field"><label for="f_weight">Weight</label><input id="f_weight" name="weight" type="text" placeholder="e.g. 850 kg"></div>
             </div>
             <div class="form-row">
-              <div class="field"><label for="f_qty">Quantity / annual volume</label><input id="f_qty" name="quantity" type="text"></div>
-              <div class="field"><label for="f_dest">Destination country</label><input id="f_dest" name="destination" type="text"></div>
+              <div class="field"><label for="f_qty">Quantity / estimated volume</label><input id="f_qty" name="quantity" type="text" placeholder="e.g. 5 units or 200/month"></div>
+              <div class="field"><label for="f_dest">Destination country / region</label><input id="f_dest" name="destination" type="text" placeholder="e.g. Domestic US or Export to Europe"></div>
             </div>
             <div class="form-row">
-              <div class="field"><label for="f_ispm">Need ISPM-15 stamp?</label>
-                <select id="f_ispm" name="ispm15"><option>Not sure</option><option>Yes</option><option>No</option></select></div>
-              <div class="field"><label for="f_date">Target delivery date</label><input id="f_date" name="delivery_date" type="date"></div>
+              <div class="field"><label for="f_trans">Transportation method</label>
+                <select id="f_trans" name="transport_method"><option value="">Select mode…</option><option>Truck / Intermodal</option><option>Ocean Container</option><option>Air Freight</option><option>Flatbed / Heavy Haul</option><option>Multiple / Mixed</option></select></div>
+              <div class="field"><label for="f_ispm">ISPM 15 compliance stamp required?</label>
+                <select id="f_ispm" name="ispm15"><option>Not sure / Advise</option><option>Yes (Export shipment)</option><option>No (Domestic use)</option></select></div>
             </div>
+            <div class="field"><label for="f_date">Target delivery date</label><input id="f_date" name="delivery_date" type="date"></div>
             <div class="field"><label for="f_files">Drawings / photos <span style="font-weight:400;color:var(--muted)">(PDF, DWG, STEP, JPG, PNG — attach in your email)</span></label><input id="f_files" name="drawings" type="file" multiple accept=".pdf,.dwg,.step,.jpg,.jpeg,.png"></div>
             <div class="field"><label for="f_notes">Notes</label><textarea id="f_notes" name="notes"></textarea></div>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
@@ -121,13 +123,14 @@
         </form>
       </div>
       <aside class="next-box">
-        <h3>What happens next</h3>
+        <h3>What Happens Next</h3>
         <ol>
-          <li>We review your specs.</li>
-          <li>We contact you with design options and pricing.</li>
-          <li>You approve, and we build and ship.</li>
+          <li><strong>01 — We Review:</strong> Our packaging specialists analyze your product geometry, weight distribution, transit conditions and compliance requirements.</li>
+          <li><strong>02 — We Respond:</strong> We contact you to clarify technical details or propose crate, pallet, dunnage or lumber configurations.</li>
+          <li><strong>03 — We Quote:</strong> We provide detailed pricing, material specifications and delivery schedules.</li>
+          <li><strong>04 — We Produce:</strong> Upon drawing or specification sign-off, our automated facilities manufacture and dispatch to your loading dock.</li>
         </ol>
-        <p style="margin-top:24px">Prefer to talk? Call <a href="tel:+15036924150">+1 (503) 692-4150</a><br>Email <a href="mailto:sales@marinelumberco.com">sales@marinelumberco.com</a></p>
+        <p style="margin-top:28px;border-top:1px solid rgba(255,255,255,.15);padding-top:20px">Prefer direct consultation?<br>Call <a href="tel:+15036924150">+1 (503) 692-4150</a><br>Email <a href="mailto:sales@marinelumberco.com">sales@marinelumberco.com</a></p>
       </aside>
     </div>
   </div>

@@ -131,7 +131,7 @@ if(form){
     /* Backend not connected yet: open the user's mail client as fallback */
     var subject='Quote request — '+(d.need||'Marine Lumber Co. website');
     var body=Object.keys(d).map(function(k){return k+': '+d[k];}).join('\n');
-    window.location.href='mailto:[To be confirmed]'.replace('[To be confirmed]','sales')+'@marinelumberco.com'
+    window.location.href='mailto:sales@marinelumberco.com'
       +'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     /* Redirect to thank-you after a short delay */
     setTimeout(function(){window.location.href='thank-you.html';},800);
