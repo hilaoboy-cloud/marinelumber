@@ -217,7 +217,8 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 /* Subpage Hero Standard: uniform height, 40% translucent image backdrop, crisp legible typography */
 .page-hero{
   position:relative;
-  min-height:340px;
+  height:360px;
+  min-height:360px;
   display:flex;
   align-items:center;
   background-color:#121415;
@@ -225,7 +226,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
   background-position:center;
   background-repeat:no-repeat;
   color:#fff;
-  padding:56px 0;
+  padding:0;
   overflow:hidden;
 }
 .page-hero::before{
@@ -375,6 +376,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
+  .page-hero{height:auto;min-height:300px;padding:48px 0}
   body{font-size:16.5px}
   section{padding:56px 0}
   h1{font-size:36px;line-height:42px}
