@@ -85,7 +85,7 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 /* Hero */
 .hero{position:relative;min-height:85vh;display:flex;align-items:center;color:#fff;padding:120px 0;overflow:hidden;background:var(--navy-900)}
 .hero-bg{position:absolute;inset:0}
-.hero-bg::after{content:"";position:absolute;inset:0;background:rgba(11,37,69,.62);z-index:1}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,20,38,.82) 0%,rgba(11,37,69,.68) 55%,rgba(20,28,40,.78) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:640px}
 .eyebrow{font-family:var(--font-h);font-size:14px;font-weight:700;letter-spacing:.22em;color:var(--amber);margin-bottom:18px;text-transform:uppercase}
 .hero h1{color:#fff;margin-bottom:20px}
@@ -266,7 +266,9 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .socials a{color:#fff;display:inline-flex;transition:color .2s}
 .socials a:hover{color:#E8963A}
 .socials svg{width:24px;height:24px;fill:currentColor}
-.footer-certs{margin-top:16px;font-size:13px;color:#E8963A;letter-spacing:.04em}
+.footer-certs{margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.45);letter-spacing:.03em;line-height:1.6}
+.footer-contact li{margin-bottom:10px;line-height:1.6}
+.site-footer .footer-grid>div ul li{margin-bottom:10px;line-height:1.6}
 /* Cookie banner + mobile sticky bar */
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:300;background:var(--navy-900);color:#fff;padding:14px 0;font-size:14.5px;display:none;box-shadow:0 -4px 20px rgba(0,0,0,.3)}
 .cookie-banner.show{display:block}
