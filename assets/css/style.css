@@ -241,7 +241,8 @@ nav[aria-label="Main navigation"]{margin-left:auto}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(18,20,21,.62) 0%,rgba(18,20,21,.52) 55%,rgba(18,20,21,.70) 100%);
+  /* 严格固定 20% 左右照片透出：80% 深炭黑曜石遮罩，确保背景真实存在且文字清晰无瑕 */
+  background:linear-gradient(180deg,rgba(18,20,21,.82) 0%,rgba(18,20,21,.78) 50%,rgba(18,20,21,.84) 100%);
   z-index:1;
   pointer-events:none;
 }

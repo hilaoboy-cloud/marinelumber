@@ -114,56 +114,85 @@
 <style>
 .pin-glow{animation:pinPulse 2.5s ease-in-out infinite}
 @keyframes pinPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.25)}}
-.route-ocean{stroke:#C8944A;stroke-width:1.6;fill:none;stroke-dasharray:6,5;animation:dashFlow 20s linear infinite;opacity:.75}
-.route-domestic{stroke:#A95A2A;stroke-width:1.2;fill:none;stroke-dasharray:3,3;animation:dashFlow 15s linear infinite;opacity:.6}
-.route-glow{stroke:#C8944A;stroke-width:4;fill:none;opacity:.12}
-@keyframes dashFlow{to{stroke-dashoffset:-200}}
-@media (prefers-reduced-motion:reduce){.pin-glow,.route-ocean,.route-domestic{animation:none}}
+.border-national{stroke:#8A98A5;stroke-width:0.85;stroke-dasharray:3,2;fill:none;opacity:.85}
+.border-state{stroke:#667482;stroke-width:0.65;stroke-dasharray:1.5,1.5;fill:none;opacity:.7}
+.border-hub-state{stroke:#C8944A;stroke-width:1.1;stroke-dasharray:3,2;fill:none;opacity:.9}
 </style>
 
-<!-- ================= 国际跨洋主干航线 (International Ocean Shipping Corridors) ================= -->
-<!-- 1. 青岛(634,144) -> 越太平洋航线 -> 俄勒冈(121,119) [跨180度经线分为西段和东段弧线] -->
-<!-- 亚洲西太平洋出海段 (青岛 -> 东向太平洋) -->
-<path class="route-glow" d="M634,144 Q700,118 760,115"/>
-<path class="route-ocean" d="M634,144 Q700,118 760,115"/>
-<!-- 北美东太平洋入港段 (西向太平洋 -> 俄勒冈波特兰/图拉丁港) -->
-<path class="route-glow" d="M0,115 Q60,112 121,119"/>
-<path class="route-ocean" d="M0,115 Q60,112 121,119"/>
+<!-- ================= 国境线 (National Borders / Country Boundaries) ================= -->
+<g id="national-borders">
+  <!-- 美加国境线 (US - Canada Border: 49th parallel & Great Lakes) -->
+  <path class="border-national" d="M96,88 L142,88 L152,90 L168,91 L180,95 L190,102 L198,100 L212,106"/>
+  <!-- 美墨国境线 (US - Mexico Border: Rio Grande & Southwest) -->
+  <path class="border-national" d="M125,160 L140,165 L152,175 L168,185 L175,190"/>
+  <!-- 阿拉斯加-加拿大边界 (Alaska - Canada border) -->
+  <path class="border-national" d="M46,65 L46,88"/>
+  
+  <!-- 中国陆地国境线 (China National Borders) -->
+  <!-- 中俄中蒙北部国境线 (Northern border: Altay - Mongolia - Heilongjiang) -->
+  <path class="border-national" d="M570,120 L585,115 L600,122 L615,118 L630,112 L645,115 L655,122 L662,130"/>
+  <!-- 中国西部及喜马拉雅西南国境线 (Western & Southwestern border: Xinjiang - Tibet - Yunnan) -->
+  <path class="border-national" d="M570,120 L560,135 L565,150 L575,162 L590,175 L605,188 L612,192"/>
+  <!-- 中国南部陆地国境线 (Southern border: Guangxi - Vietnam) -->
+  <path class="border-national" d="M612,192 L620,188 L626,186"/>
+  <!-- 中朝边界 (China - North Korea border: Yalu River) -->
+  <path class="border-national" d="M648,135 L654,138"/>
 
-<!-- 2. 青岛(634,144) -> 欧亚航线(经马六甲/苏伊士) -> 伦敦(380,103) -->
-<path class="route-glow" d="M634,144 Q560,210 490,200 Q430,170 380,103"/>
-<path class="route-ocean" d="M634,144 Q560,210 490,200 Q430,170 380,103"/>
+  <!-- 巴西国境线 (Brazil National Borders) -->
+  <!-- 巴西与乌拉圭/阿根廷/巴拉圭南部国境线 -->
+  <path class="border-national" d="M260,345 L252,338 L246,325 L242,315"/>
+  <!-- 巴西与玻利维亚/秘鲁中西部国境线 -->
+  <path class="border-national" d="M242,315 L235,300 L228,285 L222,270"/>
+  <!-- 巴西与哥伦比亚/委内瑞拉/圭亚那北部国境线 -->
+  <path class="border-national" d="M222,270 L235,260 L248,255 L262,252 L275,255"/>
 
-<!-- 3. 巴西(277,314) -> 大西洋原料供应链 -> 北美东海岸/西海岸(121,119) -->
-<path class="route-glow" d="M277,314 Q230,240 180,170 Q145,145 121,119"/>
-<path class="route-ocean" d="M277,314 Q230,240 180,170 Q145,145 121,119"/>
+  <!-- 欧洲国家边界线 (European Borders: UK / France / Germany / North Sea) -->
+  <path class="border-national" d="M375,115 L385,122 L392,128 L405,125"/>
+  <path class="border-national" d="M392,110 L402,112 L412,108 L420,115"/>
+  <path class="border-national" d="M365,96 L375,94"/> <!-- Scotland/England -->
+</g>
 
-<!-- 4. 巴西(277,314) -> 南大西洋-欧洲航线 -> 伦敦(380,103) -->
-<path class="route-glow" d="M277,314 Q320,220 380,103"/>
-<path class="route-ocean" d="M277,314 Q320,220 380,103"/>
+<!-- ================= 省市线 / 州界线 (Provincial & State Boundaries) ================= -->
+<g id="state-provincial-borders">
+  <!-- 美国核心州界线 (US State Lines: Oregon, Washington, California, Pacific NW & Midwest) -->
+  <!-- 俄勒冈州(Tualatin所在的Oregon)北界-华盛顿州界 (Columbia River) -->
+  <path class="border-hub-state" d="M110,108 L126,108 L135,112"/>
+  <!-- 俄勒冈州南界-加州/内华达州界 (42nd parallel) -->
+  <path class="border-hub-state" d="M112,126 L134,126"/>
+  <!-- 俄勒冈州东界-爱达荷州界 -->
+  <path class="border-hub-state" d="M134,112 L134,126"/>
+  <!-- 加州东部内华达州界 -->
+  <path class="border-state" d="M126,126 L132,152"/>
+  <!-- 华盛顿州东界 -->
+  <path class="border-state" d="M135,88 L135,112"/>
+  <!-- 美国内陆中西部主要州界网 (Midwest & Texas grid) -->
+  <path class="border-state" d="M152,90 L152,175"/>
+  <path class="border-state" d="M168,91 L168,185"/>
+  <path class="border-state" d="M134,140 L168,140"/>
+  <path class="border-state" d="M152,160 L180,160"/>
 
-<!-- ================= 北美/中国各省市与内陆干线网络 (State & Domestic Logistics Lines) ================= -->
-<!-- 北美西海岸与内陆物流干线 (Tualatin Hub 辐射西雅图、加州长滩、芝加哥枢纽) -->
-<path class="route-domestic" d="M121,119 L120,98"/>  <!-- Tualatin -> Seattle/Tacoma -->
-<path class="route-domestic" d="M121,119 L125,148"/> <!-- Tualatin -> LA/Long Beach Port -->
-<path class="route-domestic" d="M121,119 Q150,118 182,126"/> <!-- Tualatin -> Chicago Midwest Hub -->
-<path class="route-domestic" d="M182,126 L208,124"/> <!-- Chicago -> New York/NJ Ports -->
-<path class="route-domestic" d="M182,126 L172,168"/> <!-- Chicago -> Houston/Gulf Coast -->
+  <!-- 中国核心省界线 (China Provincial Lines: 山东省/青岛、华北、长三角、沿海) -->
+  <!-- 山东省边界 (Shandong Peninsula - Qingdao Hub Provincial Border) -->
+  <path class="border-hub-state" d="M624,136 L628,138 L636,136 L642,142 L640,150 L632,150 L625,145 Z"/>
+  <!-- 江苏/长三角省界线 -->
+  <path class="border-state" d="M625,150 L638,154 L642,162"/>
+  <!-- 河北/京津冀省界线 -->
+  <path class="border-state" d="M624,136 L620,128 L628,124"/>
+  <!-- 浙江/福建/东南沿海省界 -->
+  <path class="border-state" d="M632,165 L636,176 L630,184"/>
+  <!-- 广东/大湾区北部省界 -->
+  <path class="border-state" d="M620,180 L628,182 L632,185"/>
 
-<!-- 中国沿海与主要制造腹地干线 (青岛辐射环渤海、长三角、大湾区) -->
-<path class="route-domestic" d="M634,144 L626,128"/> <!-- 青岛 -> 京津冀/渤海湾 -->
-<path class="route-domestic" d="M634,144 L639,165"/> <!-- 青岛 -> 上海/长三角港口群 -->
-<path class="route-domestic" d="M639,165 L630,186"/> <!-- 长三角 -> 深圳/大湾区 -->
-
-<!-- 省市/辅节点 (Domestic Hubs) -->
-<circle cx="120" cy="98" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="125" cy="148" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="182" cy="126" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="208" cy="124" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="172" cy="168" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="626" cy="128" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="639" cy="165" r="2.5" fill="#C8944A" opacity="0.8"/>
-<circle cx="630" cy="186" r="2.5" fill="#C8944A" opacity="0.8"/>
+  <!-- 巴西圣卡塔琳娜州及周边州界 (Santa Catarina State Borders & South Brazil) -->
+  <!-- 圣卡塔琳娜州北界 (Paraná border) -->
+  <path class="border-hub-state" d="M266,310 L278,310"/>
+  <!-- 圣卡塔琳娜州南界 (Rio Grande do Sul border) -->
+  <path class="border-hub-state" d="M268,322 L279,320"/>
+  <!-- 圣卡塔琳娜州西界 -->
+  <path class="border-hub-state" d="M266,310 L268,322"/>
+  <!-- 圣保罗州北界 -->
+  <path class="border-state" d="M265,298 L282,298"/>
+</g>
 
 <!-- ================= 四大核心枢纽标注 (Core Hubs) ================= -->
 <!-- 1. Tualatin, Oregon (USA HQ) -->
