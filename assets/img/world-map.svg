@@ -119,7 +119,7 @@
 <circle class="pin-glow" cx="121" cy="119" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="121" cy="119" r="5" fill="#E8963A"/>
 <circle cx="121" cy="119" r="2" fill="#fff"/>
-<text x="99" y="115" text-anchor="end" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text><text x="99" y="129" text-anchor="end" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">GLOBAL HQ & FACTORY</text>
+<text x="99" y="115" text-anchor="end" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text><text x="99" y="129" text-anchor="end" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">GLOBAL HQ &amp; FACTORY</text>
 <circle class="pin-glow" cx="380" cy="103" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="380" cy="103" r="5" fill="#E8963A"/>
 <circle cx="380" cy="103" r="2" fill="#fff"/>
@@ -131,5 +131,5 @@
 <circle class="pin-glow" cx="277" cy="314" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="277" cy="314" r="5" fill="#E8963A"/>
 <circle cx="277" cy="314" r="2" fill="#fff"/>
-<text x="277" y="344" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Santa Catarina, Brazil</text><text x="277" y="358" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">LUMBER & MANUFACTURING</text>
+<text x="277" y="344" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Santa Catarina, Brazil</text><text x="277" y="358" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">LUMBER &amp; MANUFACTURING</text>
 </svg>
