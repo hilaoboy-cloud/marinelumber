@@ -45,10 +45,12 @@ h3{font-size:28px;line-height:36px;font-weight:600}
 .btn-white-outline{background:transparent;color:#fff!important;border-color:#fff}
 .btn-white-outline:hover{background:#fff;color:var(--navy-900)!important}
 /* Header */
-.utility-bar{background:var(--navy-900);color:rgba(255,255,255,.75);font-size:13px;padding:8px 0}
+.utility-bar{background:var(--navy-900);color:rgba(255,255,255,.75);font-size:12.5px;padding:6px 0}
 .utility-bar .container{display:flex;justify-content:space-between;align-items:center}
-.utility-bar a{color:rgba(255,255,255,.75);margin-left:16px}
-.utility-bar a:hover{color:var(--amber)}
+.utility-social{display:flex;gap:14px;align-items:center}
+.utility-social a{display:inline-flex;color:rgba(255,255,255,.75);transition:color .2s}
+.utility-social a:hover{color:var(--amber)}
+.utility-social svg{width:15px;height:15px;fill:currentColor}
 .site-header{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 12px rgba(11,37,69,.06);transition:box-shadow .2s}
 .site-header.scrolled{box-shadow:0 4px 20px rgba(11,37,69,.12)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;transition:height .25s}
