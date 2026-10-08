@@ -16,6 +16,9 @@
   --accent-subtle: #EDF4F0;   /* Light Technical Tint */
   --accent-border: #9DC1B3;   /* Technical Green Border */
 
+  --cta: #A95A2A;             /* Signature Industrial Timber / Terracotta CTA */
+  --cta-hover: #8E491F;       /* Signature CTA Hover */
+
   --bg-page: #FFFFFF;         /* Crisp Canvas */
   --bg-subtle: #F6F8FA;       /* Warm Technical Neutral Gray */
   --bg-card: #FFFFFF;         /* Information Panel White */
@@ -128,15 +131,16 @@ h4 { font-size: 18px; font-weight: 600; }
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--navy-900);
+  background: var(--cta);
   color: #fff !important;
-  border-color: var(--navy-900);
+  border-color: var(--cta);
   box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--cta-hover);
+  border-color: var(--cta-hover);
   color: #fff !important;
+  transform: translateY(-1px);
 }
 .btn-outline {
   background: transparent;
@@ -162,13 +166,13 @@ h4 { font-size: 18px; font-weight: 600; }
   min-height: 40px;
   padding: 0 18px;
   font-size: 13px;
-  background: var(--navy-900);
+  background: var(--cta);
   color: #fff !important;
-  border-color: var(--navy-900);
+  border-color: var(--cta);
 }
 .btn-nav:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--cta-hover);
+  border-color: var(--cta-hover);
   color: #fff !important;
 }
 
