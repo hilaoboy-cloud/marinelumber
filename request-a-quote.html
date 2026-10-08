@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Quote | Marine Lumber Co.</title>
+<meta name="description" content="Tell us what you ship and get crate, pallet or lumber options and pricing from a specialist.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Marine Lumber Co.","url":"https://marinelumberco.com/","logo":"https://marinelumberco.com/assets/img/logo.png","foundingDate":"1946","address":{"@type":"PostalAddress","addressLocality":"Tualatin","addressRegion":"OR","addressCountry":"US"},"areaServed":"Worldwide"}
+</script>
+
+</head>
+<body>
+<div class="utility-bar"><div class="container"><span>Since 1946 · Manufacturing in the USA, Brazil &amp; China</span><span><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a></span></div></div>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Marine Lumber Co. home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="6" fill="#B8520E"/><path d="M14 30 L24 14 L34 30 M18 24 H30" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="brand-name">MARINE LUMBER CO.<small>EST. 1946</small></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-top" href="products/index.html">Products <span class="nav-caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="products/custom-wood-crates.html">Custom Wood Crates<span class="dd-sub">Engineered to your product</span></a></li>
+            <li><a href="products/pallets-skids.html">Pallets &amp; Skids<span class="dd-sub">Wholesale, made in-house</span></a></li>
+            <li><a href="products/dunnage-banding-runners.html">Dunnage &amp; Runners<span class="dd-sub">Cut to spec, stamped</span></a></li>
+            <li><a href="products/lumber-plywood.html">Lumber &amp; Plywood<span class="dd-sub">Cut to your dimensions</span></a></li>
+            <li><a href="products/index.html"><strong>View all products →</strong></a></li>
+          </ul>
+        </li>
+        <li><a class="nav-top" href="index.html#industries">Industries <span class="nav-caret">▾</span></a>
+          <ul class="dropdown"><li><a href="index.html#industries"><strong>Industries we serve →</strong><span class="dd-sub">Equipment, electronics, energy, military, agriculture</span></a></li></ul>
+        </li>
+        <li><a class="nav-top" href="capabilities.html">Capabilities</a></li>
+        <li><a class="nav-top" href="faq.html">Resources <span class="nav-caret">▾</span></a>
+          <ul class="dropdown"><li><a href="faq.html"><strong>FAQ →</strong><span class="dd-sub">ISPM-15, quoting, lead times</span></a></li></ul>
+        </li>
+        <li><a class="nav-top" href="about.html">About <span class="nav-caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="about.html">Our Story<span class="dd-sub">Three generations since 1946</span></a></li>
+            <li><a href="team.html">Our Team<span class="dd-sub">The people behind the crates</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <span class="nav-phone" title="Phone number to be confirmed">[To be confirmed]</span>
+      <a class="btn btn-primary" href="request-a-quote.html">Request a Quote</a>
+    </div>
+  </div>
+</header>
+<main>
+
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="padding:0;margin-bottom:16px"><a href="index.html" style="color:rgba(255,255,255,.7)">Home</a> <span aria-hidden="true">/</span> Request a Quote</nav>
+    <h1>Request a Quote</h1>
+    <p>Tell us what you ship. A packaging specialist will reply with options and pricing.</p>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="quote-layout">
+      <div class="form-panel">
+        <form id="rfqForm" novalidate>
+          <div class="step-dots"><div class="step-dot active">1 · Contact info</div><div class="step-dot">2 · Project details</div></div>
+          <div class="form-step active">
+            <div class="form-row">
+              <div class="field"><label for="f_fname">First name <i>*</i></label><input id="f_fname" name="first_name" type="text" required autocomplete="given-name"><span class="err">Please enter your first name.</span></div>
+              <div class="field"><label for="f_lname">Last name <i>*</i></label><input id="f_lname" name="last_name" type="text" required autocomplete="family-name"><span class="err">Please enter your last name.</span></div>
+            </div>
+            <div class="field"><label for="f_company">Company <i>*</i></label><input id="f_company" name="company" type="text" required autocomplete="organization"><span class="err">Please enter your company.</span></div>
+            <div class="form-row">
+              <div class="field"><label for="f_email">Work email <i>*</i></label><input id="f_email" name="email" type="email" required autocomplete="email"><span class="err">Please enter a work email so we can send your quote.</span></div>
+              <div class="field"><label for="f_phone">Phone <i>*</i></label><input id="f_phone" name="phone" type="tel" required autocomplete="tel"><span class="err">Please enter your phone number.</span></div>
+            </div>
+            <div class="field"><label for="f_need">What do you need? <i>*</i></label>
+              <select id="f_need" name="need" required>
+                <option value="">Select a product…</option>
+                <option>Custom crates</option><option>Knock-down kits</option><option>Pallets &amp; skids</option>
+                <option>Dunnage &amp; runners</option><option>Lumber &amp; plywood</option><option>Moving &amp; storage</option>
+                <option>Ag bins</option><option>Components</option><option>Other</option>
+              </select><span class="err">Please choose a product.</span></div>
+            <input type="text" id="honeypot" name="website" style="display:none" tabindex="-1" autocomplete="off">
+            <button class="btn btn-primary" id="toStep2" type="button" style="width:100%">Continue</button>
+          </div>
+          <div class="form-step">
+            <div class="field"><label for="f_item">Item to be shipped</label><input id="f_item" name="item" type="text" placeholder="e.g. CNC machining center"></div>
+            <div class="form-row">
+              <div class="field"><label for="f_dims">Dimensions L × W × H + unit</label><input id="f_dims" name="dimensions" type="text" placeholder="e.g. 120 × 80 × 100 cm"></div>
+              <div class="field"><label for="f_weight">Weight</label><input id="f_weight" name="weight" type="text" placeholder="e.g. 850 kg"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="f_qty">Quantity / annual volume</label><input id="f_qty" name="quantity" type="text"></div>
+              <div class="field"><label for="f_dest">Destination country</label><input id="f_dest" name="destination" type="text"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="f_ispm">Need ISPM-15 stamp?</label>
+                <select id="f_ispm" name="ispm15"><option>Not sure</option><option>Yes</option><option>No</option></select></div>
+              <div class="field"><label for="f_date">Target delivery date</label><input id="f_date" name="delivery_date" type="date"></div>
+            </div>
+            <div class="field"><label for="f_files">Drawings / photos <span style="font-weight:400;color:var(--muted)">(PDF, DWG, STEP, JPG, PNG — attach in your email)</span></label><input id="f_files" name="drawings" type="file" multiple accept=".pdf,.dwg,.step,.jpg,.jpeg,.png"></div>
+            <div class="field"><label for="f_notes">Notes</label><textarea id="f_notes" name="notes"></textarea></div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button class="btn btn-outline" id="backStep1" type="button">Back</button>
+              <button class="btn btn-primary" type="submit" style="flex:1">Send My Request</button>
+            </div>
+            <p class="form-note">We only use your details to respond to your request. No spam.</p>
+          </div>
+        </form>
+      </div>
+      <aside class="next-box">
+        <h3>What happens next</h3>
+        <ol>
+          <li>We review your specs.</li>
+          <li>We contact you with design options and pricing.</li>
+          <li>You approve, and we build and ship.</li>
+        </ol>
+        <p style="margin-top:24px">Prefer to talk? Call <span class="tbc" style="border-color:rgba(232,150,58,.5);color:#E8963A;background:transparent">phone TBC</span><br>Email <span class="tbc" style="border-color:rgba(232,150,58,.5);color:#E8963A;background:transparent">sales email TBC</span></p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Marine Lumber Co. home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="6" fill="#B8520E"/><path d="M14 30 L24 14 L34 30 M18 24 H30" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-name">MARINE LUMBER CO.<small>EST. 1946</small></span>
+        </a>
+        <p>Custom wood crating, pallets and lumber since 1946.</p>
+        <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a></div>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products/custom-wood-crates.html">Custom Wood Crates</a></li>
+          <li><a href="products/index.html">Knock-Down Crate Kits</a></li>
+          <li><a href="products/pallets-skids.html">Pallets &amp; Skids</a></li>
+          <li><a href="products/dunnage-banding-runners.html">Dunnage &amp; Banding Runners</a></li>
+          <li><a href="products/lumber-plywood.html">Cut-to-Size Lumber &amp; Plywood</a></li>
+          <li><a href="products/index.html">Moving &amp; Storage Products</a></li>
+          <li><a href="products/index.html">Agricultural Bins &amp; Racks</a></li>
+          <li><a href="products/index.html">Manufactured Components</a></li>
+          <li><a href="products/index.html">Imported Plywood &amp; Lumber</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="capabilities.html">Capabilities</a></li>
+          <li><a href="index.html#industries">Industries</a></li>
+          <li><a href="faq.html">Resources &amp; FAQ</a></li>
+          <li><a href="contact.html">Vendor / Accounting Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Headquarters &amp; factory: Tualatin, Oregon <span class="tbc">address TBC</span></li>
+          <li>Phone: <span class="tbc">TBC</span></li>
+          <li>Email: <span class="tbc">TBC</span></li>
+          <li>London office <span class="tbc">address TBC</span></li>
+          <li>Qingdao office <span class="tbc">address TBC</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Marine Lumber Co. All rights reserved.</span>
+        <span><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · Sister sites: <a href="#">Marine Defense Packaging</a>, <a href="#">Qingdao Lumber &amp; Packaging (China)</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <div class="container">
+    <span>We use cookies to improve your experience and measure site performance.</span>
+    <span><button class="btn btn-primary" data-cookie="accept">Accept</button> <button class="btn btn-white-outline" data-cookie="decline">Decline</button> <a href="#" style="color:#E8963A;margin-left:12px">Learn more</a></span>
+  </div>
+</div>
+<div class="mobile-bar">
+  <a class="btn btn-outline" href="contact.html">Call</a>
+  <a class="btn btn-primary" href="request-a-quote.html">Request a Quote</a>
+</div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
