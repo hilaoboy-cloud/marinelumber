@@ -1,6 +1,7 @@
 /* Marine Lumber Co. — site interactions */
 (function(){
 "use strict";
+document.documentElement.classList.add('js');
 
 /* Header shrink */
 var header=document.querySelector('.site-header');
@@ -83,10 +84,12 @@ var banner=document.getElementById('cookieBanner');
 try{
   if(banner&&!localStorage.getItem('mlc-cookie')){
     banner.classList.add('show');
+    document.body.classList.add('cookie-open');
     banner.querySelectorAll('[data-cookie]').forEach(function(b){
       b.addEventListener('click',function(){
         try{localStorage.setItem('mlc-cookie',b.getAttribute('data-cookie'));}catch(e){}
         banner.classList.remove('show');
+        document.body.classList.remove('cookie-open');
       });
     });
   }
@@ -155,4 +158,35 @@ if(mini){
     window.location.href='request-a-quote.html?ship='+encodeURIComponent(q);
   });
 }
+
+/* Hero text rotator */
+(function(){
+  var rot=document.getElementById('heroRotator');
+  if(!rot)return;
+  var slides=rot.querySelectorAll('.hero-slide');
+  var dots=document.querySelectorAll('.hero-dot');
+  if(slides.length<2)return;
+  var idx=0,timer=null;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n){
+    idx=(n+slides.length)%slides.length;
+    slides.forEach(function(s,i){
+      var on=i===idx;
+      s.classList.toggle('is-active',on);
+      if(on){s.removeAttribute('aria-hidden');}else{s.setAttribute('aria-hidden','true');}
+    });
+    dots.forEach(function(d,i){
+      d.classList.toggle('is-active',i===idx);
+      d.setAttribute('aria-selected',i===idx?'true':'false');
+    });
+  }
+  function start(){if(!reduced&&!timer){timer=setInterval(function(){show(idx+1);},5000);}}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){stop();show(parseInt(d.getAttribute('data-slide'),10));start();});
+  });
+  rot.addEventListener('mouseenter',stop);
+  rot.addEventListener('mouseleave',start);
+  start();
+})();
 })();
