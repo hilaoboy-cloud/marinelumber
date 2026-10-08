@@ -210,12 +210,71 @@ nav[aria-label="Main navigation"]{margin-left:auto}
 .alt-cta{color:var(--muted);font-size:16px}
 .alt-cta a{color:var(--timber);font-weight:600}
 /* Breadcrumbs */
-.breadcrumbs{font-size:14px;color:var(--muted);padding:20px 0 0}
-.breadcrumbs a{color:var(--muted)}
-.breadcrumbs a:hover{color:var(--timber)}
-.page-hero{background:linear-gradient(135deg,#121414 0%,#1A1E1B 60%,#22262B 100%);color:#fff;padding:72px 0;position:relative;overflow:hidden}
-.page-hero h1{color:#fff;margin-bottom:14px}
-.page-hero p{color:rgba(255,255,255,.82);font-size:19px;max-width:760px}
+.breadcrumbs{font-size:14.5px;color:rgba(255,255,255,.75);margin-bottom:16px}
+.breadcrumbs a{color:rgba(255,255,255,.75);text-decoration:none}
+.breadcrumbs a:hover{color:#fff;text-decoration:underline}
+
+/* Subpage Hero Standard: uniform height, 40% translucent image backdrop, crisp legible typography */
+.page-hero{
+  position:relative;
+  min-height:340px;
+  display:flex;
+  align-items:center;
+  background-color:var(--navy-900);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:#fff;
+  padding:56px 0;
+  overflow:hidden;
+}
+.page-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(11,31,51,.65) 0%,rgba(11,31,51,.55) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.page-hero .container{
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+.page-hero h1{
+  color:#fff;
+  font-size:46px;
+  line-height:1.15;
+  margin-bottom:14px;
+  font-weight:700;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+.page-hero p{
+  color:rgba(255,255,255,.92);
+  font-size:18px;
+  line-height:1.6;
+  max-width:780px;
+  text-shadow:0 1px 4px rgba(0,0,0,.35);
+}
+
+/* Subpage Hero Specific Background Assets */
+.hero-about{background-image:url("../img/heroes/hero-about.webp")}
+.hero-team{background-image:url("../img/heroes/hero-team.webp")}
+.hero-capabilities{background-image:url("../img/heroes/hero-capabilities.webp")}
+.hero-contact{background-image:url("../img/heroes/hero-contact.webp")}
+.hero-faq{background-image:url("../img/heroes/hero-faq.webp")}
+.hero-quote{background-image:url("../img/heroes/hero-quote.webp")}
+.hero-products{background-image:url("../img/heroes/hero-products.webp")}
+.hero-crates{background-image:url("../img/heroes/hero-crates.webp")}
+.hero-pallets{background-image:url("../img/heroes/hero-pallets.webp")}
+.hero-dunnage{background-image:url("../img/heroes/hero-dunnage.webp")}
+.hero-lumber{background-image:url("../img/heroes/hero-lumber.webp")}
+.hero-machinery{background-image:url("../img/heroes/hero-machinery.webp")}
+.hero-electronics{background-image:url("../img/heroes/hero-electronics.webp")}
+.hero-energy{background-image:url("../img/heroes/hero-energy.webp")}
+.hero-military{background-image:url("../img/heroes/hero-military.webp")}
+.hero-agriculture{background-image:url("../img/heroes/hero-agriculture.webp")}
+.hero-building{background-image:url("../img/heroes/hero-building.webp")}
 /* Product page template */
 .ataglance{background:var(--gray);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin:40px 0}
 .ataglance h3{margin-bottom:20px}
