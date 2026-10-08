@@ -7,8 +7,8 @@
 <stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/>
 </radialGradient>
 </defs>
-<rect width="760" height="400" fill="url(#mapbg)" rx="10"/>
-<rect width="760" height="400" fill="url(#sheen)" rx="10"/>
+<rect width="760" height="400" fill="url(#mapbg)"/>
+<rect width="760" height="400" fill="url(#sheen)"/>
 <path d="M254,453L254,455L253,456L249,456L244,456L241,455L241,455L240,454L245,454L249,454L251,453L252,452L254,453Z" fill="#2E3532" stroke="#55605A" stroke-width=".8" opacity=".95"/>
 <path d="M44,452L40,452L37,451L36,450L36,450L34,450L34,450L36,449L40,449L42,450L43,451L44,452Z" fill="#2E3532" stroke="#55605A" stroke-width=".8" opacity=".95"/>
 <path d="M285,448L287,449L288,451L288,452L289,453L285,454L282,455L278,456L273,456L268,456L266,455L266,454L271,453L272,452L274,451L275,450L276,449L277,448L277,448L278,448L281,448L285,448Z" fill="#2E3532" stroke="#55605A" stroke-width=".8" opacity=".95"/>
@@ -119,17 +119,17 @@
 <circle class="pin-glow" cx="121" cy="119" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="121" cy="119" r="5" fill="#E8963A"/>
 <circle cx="121" cy="119" r="2" fill="#fff"/>
-<text x="99" y="115" text-anchor="end" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Tualatin, Oregon</text><text x="99" y="129" text-anchor="end" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">GLOBAL HQ &amp; FACTORY</text>
+<text x="140" y="115" text-anchor="start" fill="#fff" font-size="13.5" font-weight="700" font-family="Inter,-apple-system,sans-serif">Tualatin, Oregon</text><text x="140" y="129" text-anchor="start" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.2" font-family="Inter,-apple-system,sans-serif">GLOBAL HQ &amp; FACTORY</text>
 <circle class="pin-glow" cx="380" cy="103" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="380" cy="103" r="5" fill="#E8963A"/>
 <circle cx="380" cy="103" r="2" fill="#fff"/>
-<text x="380" y="81" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">London</text><text x="380" y="95" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">EUROPE SUPPORT</text>
+<text x="380" y="80" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Inter,-apple-system,sans-serif">London</text><text x="380" y="94" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.2" font-family="Inter,-apple-system,sans-serif">EUROPE SUPPORT</text>
 <circle class="pin-glow" cx="634" cy="144" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="634" cy="144" r="5" fill="#E8963A"/>
 <circle cx="634" cy="144" r="2" fill="#fff"/>
-<text x="656" y="140" text-anchor="start" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Qingdao, China</text><text x="656" y="154" text-anchor="start" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">MANUFACTURING BASE</text>
+<text x="614" y="140" text-anchor="end" fill="#fff" font-size="13.5" font-weight="700" font-family="Inter,-apple-system,sans-serif">Qingdao, China</text><text x="614" y="154" text-anchor="end" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.2" font-family="Inter,-apple-system,sans-serif">MANUFACTURING BASE</text>
 <circle class="pin-glow" cx="277" cy="314" r="12" fill="#E8963A" opacity="0.3"/>
 <circle cx="277" cy="314" r="5" fill="#E8963A"/>
 <circle cx="277" cy="314" r="2" fill="#fff"/>
-<text x="277" y="344" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Barlow,Inter,sans-serif">Santa Catarina, Brazil</text><text x="277" y="358" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.5" font-family="Barlow,Inter,sans-serif">LUMBER &amp; MANUFACTURING</text>
+<text x="277" y="344" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="700" font-family="Inter,-apple-system,sans-serif">Santa Catarina, Brazil</text><text x="277" y="358" text-anchor="middle" fill="#E8963A" font-size="10" font-weight="600" letter-spacing="1.2" font-family="Inter,-apple-system,sans-serif">LUMBER &amp; MANUFACTURING</text>
 </svg>
