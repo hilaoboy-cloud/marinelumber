@@ -113,6 +113,12 @@
     if (!isOpen && !hasInteracted) {
       if (bubble) bubble.classList.add('show');
       if (badge) badge.classList.add('show');
+      if (trigger) {
+        trigger.classList.add('greet');
+        setTimeout(function() {
+          trigger.classList.remove('greet');
+        }, 1200);
+      }
     }
   }, window.MLC_CHAT_CONFIG.delayMs || 3000);
 
