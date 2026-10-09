@@ -42,9 +42,8 @@ window.MLC_CHAT_CONFIG = {
     '    <img src="' + avatarSrc + '" onerror="this.src=\'' + avatarFallback + '\'" alt="' + window.MLC_CHAT_CONFIG.specialistName + '" width="62" height="62" loading="lazy">',
     '  </div>',
     '  <span class="mlc-online-dot" title="Online now"></span>',
-    '  <span class="mlc-unread-badge" id="mlcUnreadBadge">1</span>',
     '</div>',
-
+    '',
     '<!-- Chat Window -->',
     '<div class="mlc-chat-window" id="mlcChatWindow" role="dialog" aria-modal="true" aria-label="Chat with Packaging Specialist">',
     '  <!-- Header -->',
@@ -66,21 +65,16 @@ window.MLC_CHAT_CONFIG = {
     '  <!-- Chat History Stream -->',
     '  <div class="mlc-window-body" id="mlcChatBody">',
     '    <div class="mlc-time-divider">Packaging AI Desk &middot; Online</div>',
-    '    <div class="mlc-msg sarah">',
-    '      <div class="mlc-msg-bubble">',
-    '        Hello! I\'m Elena, Marine Lumber\'s packaging specialist assistant. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?',
-    '      </div>',
-    '    </div>',
-    '    <div class="mlc-quick-replies" id="mlcQuickReplies">',
-    '      <button class="mlc-quick-btn" type="button" data-query="Can you quote custom crates for machinery?">📦 Custom Wood Crates</button>',
-    '      <button class="mlc-quick-btn" type="button" data-query="Do you supply cut-to-size lumber and plywood?">🪵 Cut Lumber &amp; Plywood</button>',
-    '      <button class="mlc-quick-btn" type="button" data-query="Are your crates ISPM 15 export certified?">📜 ISPM-15 Export Rules</button>',
-    '      <button class="mlc-quick-btn" type="button" data-query="How do I speak with an engineer or call?">📞 Speak with Engineer</button>',
-    '    </div>',
     '    <div class="mlc-typing" id="mlcTyping">',
     '      <span class="mlc-typing-dot"></span>',
     '      <span class="mlc-typing-dot"></span>',
     '      <span class="mlc-typing-dot"></span>',
+    '    </div>',
+    '    <div class="mlc-quick-replies" id="mlcQuickReplies" style="display:none">',
+    '      <button class="mlc-quick-btn" type="button" data-query="Can you quote custom crates for machinery?">📦 Custom Wood Crates</button>',
+    '      <button class="mlc-quick-btn" type="button" data-query="Do you supply cut-to-size lumber and plywood?">🪵 Cut Lumber &amp; Plywood</button>',
+    '      <button class="mlc-quick-btn" type="button" data-query="Are your crates ISPM 15 export certified?">📜 ISPM-15 Export Rules</button>',
+    '      <button class="mlc-quick-btn" type="button" data-query="How do I speak with an engineer or call?">📞 Speak with Engineer</button>',
     '    </div>',
     '  </div>',
     '  <!-- Footer Input Form -->',
@@ -101,7 +95,6 @@ window.MLC_CHAT_CONFIG = {
   var trigger = document.getElementById('mlcChatTrigger');
   var bubble = document.getElementById('mlcChatBubble');
   var bubbleClose = document.getElementById('mlcBubbleClose');
-  var unreadBadge = document.getElementById('mlcUnreadBadge');
   var win = document.getElementById('mlcChatWindow');
   var winClose = document.getElementById('mlcWindowClose');
   var body = document.getElementById('mlcChatBody');
@@ -111,29 +104,45 @@ window.MLC_CHAT_CONFIG = {
   var quickReplies = document.getElementById('mlcQuickReplies');
 
   var isOpen = false;
+  var hasGreeted = false;
+  var welcomeText = "Hello! I'm Elena, Marine Lumber's packaging specialist assistant. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?";
 
-  // Auto trigger greeting after 3.5s
+  // Auto trigger friendly bubble greeting after 3.8s (clean without fake badge)
   var seenPrompt = sessionStorage.getItem('mlc_desk_seen') === 'true';
   if (!seenPrompt) {
     setTimeout(function() {
       if (!isOpen) {
         if (bubble) bubble.classList.add('show');
-        if (unreadBadge) unreadBadge.classList.add('active');
         if (trigger) trigger.classList.add('greet-shake');
       }
-    }, 3500);
+    }, 3800);
   }
 
   function openChat() {
     isOpen = true;
     if (bubble) bubble.classList.remove('show');
-    if (unreadBadge) unreadBadge.classList.remove('active');
     if (trigger) trigger.classList.remove('greet-shake');
     try { sessionStorage.setItem('mlc_desk_seen', 'true'); } catch(e){}
     win.classList.add('open');
     setTimeout(function() {
       if (input) input.focus();
     }, 250);
+
+    // Dynamic typing greeting sequence when first opened
+    if (!hasGreeted) {
+      hasGreeted = true;
+      setTyping(true);
+      setTimeout(function() {
+        setTyping(false);
+        appendElenaMessage(welcomeText);
+        if (quickReplies) {
+          quickReplies.style.display = 'flex';
+          quickReplies.style.opacity = '0';
+          quickReplies.style.transition = 'opacity .35s ease';
+          setTimeout(function() { quickReplies.style.opacity = '1'; }, 50);
+        }
+      }, 750);
+    }
   }
 
   function closeChat() {
@@ -156,7 +165,6 @@ window.MLC_CHAT_CONFIG = {
     bubbleClose.addEventListener('click', function(e) {
       e.stopPropagation();
       bubble.classList.remove('show');
-      if (unreadBadge) unreadBadge.classList.remove('active');
       if (trigger) trigger.classList.remove('greet-shake');
       try { sessionStorage.setItem('mlc_desk_seen', 'true'); } catch(err){}
     });
@@ -290,6 +298,7 @@ window.MLC_CHAT_CONFIG = {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var val = input.value;
+      if (quickReplies) quickReplies.style.display = 'none';
       handleSendMessage(val);
     });
   }
