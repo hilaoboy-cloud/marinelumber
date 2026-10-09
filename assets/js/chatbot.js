@@ -26,22 +26,13 @@ window.MLC_CHAT_CONFIG = {
   var widget = document.createElement('div');
   widget.className = 'mlc-chat-widget';
   widget.innerHTML = [
-    '<!-- Auto Greeting Bubble (Shows after 3.5s) -->',
-    '<div class="mlc-chat-bubble" id="mlcChatBubble" role="status">',
-    '  <button class="mlc-bubble-close" id="mlcBubbleClose" type="button" aria-label="Dismiss">&times;</button>',
-    '  <div class="mlc-bubble-author">',
-    '    <span class="dot"></span>',
-    '    <strong>' + window.MLC_CHAT_CONFIG.specialistName + ' &middot; ' + window.MLC_CHAT_CONFIG.specialistRole + '</strong>',
+    '<!-- B2B Side Dock Tab Trigger (Pinned to Right Viewport Edge) -->',
+    '<div class="mlc-side-tab" id="mlcChatTrigger" role="button" tabindex="0" aria-label="Open MarineLumber AI Assistant">',
+    '  <div class="mlc-side-tab-inner">',
+    '    <span class="mlc-side-dot" title="Online"></span>',
+    '    <span class="mlc-side-text">Quick Quote / AI</span>',
+    '    <span class="mlc-side-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></span>',
     '  </div>',
-    '  <p class="mlc-bubble-text">Hi there! Looking for custom crate sizing, pallets or direct lumber pricing today?</p>',
-    '</div>',
-
-    '<!-- Floating Specialist Avatar Trigger -->',
-    '<div class="mlc-chat-trigger" id="mlcChatTrigger" role="button" tabindex="0" aria-label="Chat with MarineLumber AI Assistant">',
-    '  <div class="mlc-trigger-avatar">',
-    '    <img src="' + avatarSrc + '" onerror="this.src=\'' + avatarFallback + '\'" alt="' + window.MLC_CHAT_CONFIG.specialistName + '" width="62" height="62" loading="lazy">',
-    '  </div>',
-    '  <span class="mlc-online-dot" title="Online now"></span>',
     '</div>',
     '',
     '<!-- Chat Window -->',
@@ -107,21 +98,13 @@ window.MLC_CHAT_CONFIG = {
   var hasGreeted = false;
   var welcomeText = "Hello! I'm MarineLumber AI Assistant, your dedicated packaging specialist. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?";
 
-  // Auto trigger friendly bubble greeting after 3.8s (clean without fake badge)
-  var seenPrompt = sessionStorage.getItem('mlc_desk_seen') === 'true';
-  if (!seenPrompt) {
-    setTimeout(function() {
-      if (!isOpen) {
-        if (bubble) bubble.classList.add('show');
-        if (trigger) trigger.classList.add('greet-shake');
-      }
-    }, 3800);
-  }
+  // 2.5 秒后平滑滑入出现 (2-3秒黄金区间)
+  setTimeout(function() {
+    if (trigger) trigger.classList.add('visible');
+  }, 2500);
 
   function openChat() {
     isOpen = true;
-    if (bubble) bubble.classList.remove('show');
-    if (trigger) trigger.classList.remove('greet-shake');
     try { sessionStorage.setItem('mlc_desk_seen', 'true'); } catch(e){}
     win.classList.add('open');
     setTimeout(function() {

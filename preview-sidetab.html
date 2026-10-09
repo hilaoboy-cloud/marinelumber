@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B 侧边贴边商务标签方案预览 · Marine Lumber Co.</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      background: #0B1320;
+      color: #E2E8F0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background: linear-gradient(180deg, #101C2C 0%, #0B1320 100%);
+      border-bottom: 1px solid rgba(232, 150, 58, 0.25);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 24px 120px;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .name-card {
+      background: #111C2E;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .name-card:hover {
+      border-color: #E8963A;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .name-card.active {
+      border-color: #E8963A;
+      background: #15243B;
+      box-shadow: 0 0 0 3px rgba(232, 150, 58, 0.35);
+    }
+    .tab-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(232, 150, 58, 0.15);
+      color: #E8963A;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .name-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .name-desc {
+      font-size: 13.5px;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+    .preview-pill-demo {
+      background: #0B1320;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-apply {
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px;
+      background: #1E293B;
+      color: #F8FAFC;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .name-card.active .btn-apply {
+      background: #E8963A;
+      color: #101C2C;
+    }
+
+    /* =========================================================
+       SIDEBAR DOCK TAB STYLES (Pinned to Right Edge)
+       ========================================================= */
+    .mlc-side-tab {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) translateX(100%);
+      opacity: 0;
+      z-index: 9998;
+      width: 44px;
+      height: 220px;
+      border-radius: 12px 0 0 12px;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.45);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      pointer-events: none;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, width 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+    }
+    .mlc-side-tab.visible {
+      transform: translateY(-50%) translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mlc-side-tab.visible:hover {
+      width: 48px;
+      box-shadow: -6px 10px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Style Variations */
+    /* 1. Corporate Blue (Matching user screenshot) */
+    .mlc-side-tab.theme-blue {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-left: 2px solid rgba(255, 255, 255, 0.35);
+    }
+    .mlc-side-tab.theme-blue:hover {
+      background: #0369A1;
+    }
+
+    /* 2. Marine Brand Gold (Industrial & high conversion) */
+    .mlc-side-tab.theme-gold {
+      background: #E8963A;
+      color: #101C2C;
+      border-left: 2px solid #FDE68A;
+    }
+    .mlc-side-tab.theme-gold:hover {
+      background: #D97706;
+    }
+
+    /* 3. Deep Navy & Gold (Enterprise executive feel) */
+    .mlc-side-tab.theme-navy {
+      background: #101C2C;
+      color: #F8FAFC;
+      border: 2px solid #E8963A;
+      border-right: none;
+    }
+    .mlc-side-tab.theme-navy:hover {
+      background: #1A2E47;
+    }
+
+    /* 内部容器：绝对居中并旋转 -90度（自下向上阅读，与 Feedback 截图 100% 一致） */
+    .mlc-side-tab-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .mlc-side-icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(90deg); /* 保持图标正向 */
+    }
+    .mlc-side-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .mlc-side-text {
+      letter-spacing: 1.5px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .mlc-side-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+      flex-shrink: 0;
+    }
+
+    /* Style switcher row */
+    .style-picker {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .style-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .style-btn.blue { background: #0284C7; color: #fff; }
+    .style-btn.gold { background: #E8963A; color: #101C2C; }
+    .style-btn.navy { background: #101C2C; color: #fff; border-color: #E8963A; }
+    .style-btn.active { box-shadow: 0 0 0 3px #fff; }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <span style="font-size:12px;font-weight:700;letter-spacing:1px;color:#E8963A;text-transform:uppercase;">Marine Lumber Co. &middot; B2B Design Direction</span>
+    <h1 style="font-size:28px;font-weight:800;color:#fff;margin:8px 0 12px;">右侧贴边商务标签 (Side Dock Tab) 方案对比</h1>
+    <p style="font-size:15px;color:#94A3B8;max-width:820px;margin:0 auto;line-height:1.6;">
+      非常赞同您的直觉！贴靠屏幕右侧的垂直标签（如您截图中 Feedback 样式）在欧美军工、重型机械、B2B工业站中极其常见，<strong>完全去除了“浮动卡通气泡”的轻浮感，视觉极具商务感与工程严谨度</strong>。<br>
+      👉 请在下方选择最适合的<strong>【业务名称】</strong>与<strong>【配色风格】</strong>，右侧悬浮标签将<strong>实时同步演练</strong>，点击即可呼出完整 AI 窗口：
+    </p>
+
+    <!-- Color Theme Switcher & Replay Button -->
+    <div class="style-picker">
+      <span style="align-self:center;font-size:13px;color:#94A3B8;font-weight:600;">切换配色：</span>
+      <button class="style-btn blue active" onclick="setTheme('theme-blue', this)">① 商务科技蓝 (如您截图风格)</button>
+      <button class="style-btn gold" onclick="setTheme('theme-gold', this)">② 工业工程金 (高吸睛度/促转化)</button>
+      <button class="style-btn navy" onclick="setTheme('theme-navy', this)">③ 沉稳黑金蓝 (高端制造业总裁感)</button>
+      <button class="style-btn" style="background:#334155;color:#F8FAFC;border:1px solid #64748B" onclick="triggerEntrance()">▶ 重新播放 2.5s 出现动画</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="comparison-grid">
+
+      <!-- Option 1 -->
+      <div class="name-card active" id="card1" onclick="applyName('Quick Quote / AI', 'card1', '💬')">
+        <span class="tab-badge">最受欧美采购青睐 · 转化率极高</span>
+        <h3 class="name-title">Quick Quote / AI</h3>
+        <p class="name-desc">
+          <strong>含义：快速报价 / AI</strong><br>
+          欧美工业品买家（采购经理、物流总监）进网站的最核心诉求就是“算价与交期”。这个名字目的性极强，比单纯聊天更吸引企业客户点击。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#E8963A;font-size:14px;">💬 QUICK QUOTE / AI</span>
+        </div>
+        <button class="btn-apply">✓ 右侧正在预览此名称</button>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="name-card" id="card2" onclick="applyName('Packaging AI', 'card2', '⚡')">
+        <span class="tab-badge">最现代商务 · 欧美科技工业标配</span>
+        <h3 class="name-title">Packaging AI</h3>
+        <p class="name-desc">
+          <strong>含义：包装 AI 专员</strong><br>
+          极为简练有力，现代科技感十足。清晰传达出“这是专门懂木包装、木箱、托盘的专业 AI”，不罗嗦，格调极高。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#38BDF8;font-size:14px;">⚡ PACKAGING AI</span>
+        </div>
+        <button class="btn-apply">点击应用到右侧</button>
+      </div>
+
+      <!-- Option 3 -->
+      <div class="name-card" id="card3" onclick="applyName('AI Assistant', 'card3', '✨')">
+        <span class="tab-badge">最通用规范 · 符合各类合规</span>
+        <h3 class="name-title">AI Assistant</h3>
+        <p class="name-desc">
+          <strong>含义：AI 商务助手</strong><br>
+          标准国际商务命名，中规中矩，完全符合欧美合规披露标准。访客一眼即知其功能，没有任何理解成本。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#A7F3D0;font-size:14px;">✨ AI ASSISTANT</span>
+        </div>
+        <button class="btn-apply">点击应用到右侧</button>
+      </div>
+
+      <!-- Option 4 -->
+      <div class="name-card" id="card4" onclick="applyName('Packaging Desk', 'card4', '📦')">
+        <span class="tab-badge">最浓重工业工程感 · 军工/重工客户</span>
+        <h3 class="name-title">Packaging Desk</h3>
+        <p class="name-desc">
+          <strong>含义：包装技术咨询台</strong><br>
+          “Desk”在欧美制造业和外贸中指代专业工程/技术台（如 Engineering Desk）。传达出一种背后有专业技术人员或专家系统坐镇的厚重感。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#FDE68A;font-size:14px;">📦 PACKAGING DESK</span>
+        </div>
+        <button class="btn-apply">点击应用到右侧</button>
+      </div>
+
+      <!-- Option 5 -->
+      <div class="name-card" id="card5" onclick="applyName('Live Support', 'card5', '🎧')">
+        <span class="tab-badge">传统服务台 · 亲和度高</span>
+        <h3 class="name-title">Live Support</h3>
+        <p class="name-desc">
+          <strong>含义：在线即时支持</strong><br>
+          传统国际商务最熟悉的字眼，给人以随时有人响应的信赖感。展开后由 AI 包装专员提供即时解答。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#F472B6;font-size:14px;">🎧 LIVE SUPPORT</span>
+        </div>
+        <button class="btn-apply">点击应用到右侧</button>
+      </div>
+
+      <!-- Option 6 -->
+      <div class="name-card" id="card6" onclick="applyName('Marine AI', 'card6', '🌲')">
+        <span class="tab-badge">品牌专属 · 兼具辨识度</span>
+        <h3 class="name-title">Marine AI</h3>
+        <p class="name-desc">
+          <strong>含义：Marine 智能专员</strong><br>
+          将公司名称 Marine Lumber 与 AI 深度绑定，简短有力，是专属品牌的数字代表。
+        </p>
+        <div class="preview-pill-demo">
+          <span style="font-weight:700;color:#FBBF24;font-size:14px;">🌲 MARINE AI</span>
+        </div>
+        <button class="btn-apply">点击应用到右侧</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Real Pinned Side Tab on the Right Edge (Starts Hidden, Slides in after 2.5s) -->
+  <div class="mlc-side-tab theme-blue" id="demoSideTab" role="button" aria-label="Open AI Assistant" onclick="openChatFromSideTab()">
+    <div class="mlc-side-tab-inner" id="sideTabInner">
+      <div class="mlc-side-dot" title="Online"></div>
+      <span class="mlc-side-text" id="sideTabText">Quick Quote / AI</span>
+      <div class="mlc-side-icon" id="sideTabIcon">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Widget Script for live window interaction -->
+  <script src="assets/js/chatbot.js?v=20261009_v4_cratey"></script>
+
+  <script>
+    var currentTheme = 'theme-blue';
+    var sideTab = document.getElementById('demoSideTab');
+    var sideTabInner = document.getElementById('sideTabInner');
+    var sideTabText = document.getElementById('sideTabText');
+    var sideTabIcon = document.getElementById('sideTabIcon');
+
+    // 动态根据文字宽度调整胶囊标签高度，保证两头留白永远匀称
+    function syncTabHeight() {
+      if (sideTab && sideTabInner) {
+        var naturalWidth = sideTabInner.offsetWidth || 180;
+        sideTab.style.height = Math.max(170, naturalWidth + 36) + 'px';
+      }
+    }
+
+    // 2.5 秒后平滑滑入出现 (2-3秒黄金时间)
+    function triggerEntrance() {
+      sideTab.classList.remove('visible');
+      setTimeout(function() {
+        sideTab.classList.add('visible');
+      }, 2500); // 2.5s 延迟
+    }
+
+    // Hide original floating avatar button on this preview page so we test only the side tab
+    window.addEventListener('DOMContentLoaded', function() {
+      syncWrapperHeight();
+      triggerEntrance();
+      setTimeout(function() {
+        var origTrigger = document.getElementById('mlcChatTrigger');
+        if (origTrigger) origTrigger.style.display = 'none';
+        var bubble = document.getElementById('mlcChatBubble');
+        if (bubble) bubble.style.display = 'none';
+      }, 100);
+    });
+
+    function setTheme(themeClass, btn) {
+      document.querySelectorAll('.style-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      sideTab.classList.remove('theme-blue', 'theme-gold', 'theme-navy');
+      sideTab.classList.add(themeClass);
+      currentTheme = themeClass;
+    }
+
+    function applyName(text, cardId, emoji) {
+      document.querySelectorAll('.name-card').forEach(function(c) {
+        c.classList.remove('active');
+        c.querySelector('.btn-apply').textContent = '点击应用到右侧';
+      });
+      var card = document.getElementById(cardId);
+      card.classList.add('active');
+      card.querySelector('.btn-apply').textContent = '✓ 右侧正在预览此名称';
+
+      sideTabText.textContent = text.toUpperCase();
+      setTimeout(syncTabHeight, 20);
+
+      // update icon
+      var icons = {
+        '💬': '<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>',
+        '⚡': '<svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>',
+        '✨': '<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>',
+        '📦': '<svg viewBox="0 0 24 24"><path d="M21 16.5l-9 5.2-9-5.2V7.5l9-5.2 9 5.2v9zM12 4.3L5.5 8 12 11.7 18.5 8 12 4.3z"/></svg>',
+        '🎧': '<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-9 9v7a3 3 0 003 3h1a2 2 0 002-2v-4a2 2 0 00-2-2H5v-2a7 7 0 1114 0v2h-2a2 2 0 00-2 2v4a2 2 0 002 2h1a3 3 0 003-3v-7a9 9 0 00-9-9z"/></svg>',
+        '🌲': '<svg viewBox="0 0 24 24"><path d="M12 2L4 14h4l-3 6h14l-3-6h4z"/></svg>'
+      };
+      if (icons[emoji]) {
+        sideTabIcon.innerHTML = icons[emoji];
+      }
+    }
+
+    function openChatFromSideTab() {
+      var win = document.getElementById('mlcChatWindow');
+      if (win) {
+        win.classList.toggle('open');
+      }
+    }
+  </script>
+</body>
+</html>
