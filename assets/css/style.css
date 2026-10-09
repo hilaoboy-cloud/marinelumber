@@ -637,7 +637,34 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .step p { color: var(--text-muted); font-size: 14.5px; line-height: 1.55; }
 
 /* Story & Technical Specs */
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: stretch;
+}
+.story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.story-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.story-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
 /* Technical Specifications Card Panel */
 .ataglance {
@@ -933,7 +960,8 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .nav-actions .btn { display: none; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .card-grid.cols-4, .card-grid.cols-3, .card-grid.cols-2 { grid-template-columns: 1fr; }
-  .story-grid { grid-template-columns: 1fr; }
+  .story-grid { grid-template-columns: 1fr; gap: 32px; }
+  .story-img-wrap { min-height: 240px; aspect-ratio: 16/10; }
   .loc-grid { grid-template-columns: 1fr; }
   .tile-grid { grid-template-columns: 1fr; }
   .why-5 { grid-template-columns: 1fr; }
