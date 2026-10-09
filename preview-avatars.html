@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 聊天机器人头像设计方案 · 卡通与工业全方案实机预览 (Preview Suite)</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      background: #0B1320;
+      color: #E2E8F0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding-bottom: 120px;
+      margin: 0;
+    }
+    .preview-header {
+      background: linear-gradient(180deg, #101C2C 0%, #0B1320 100%);
+      border-bottom: 1px solid rgba(232, 150, 58, 0.25);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1380px;
+      margin: 36px auto;
+      padding: 0 24px;
+    }
+    .design-card {
+      background: #111C2E;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .design-card:hover {
+      border-color: #E8963A;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .design-card.active {
+      border-color: #E8963A;
+      background: #15243B;
+      box-shadow: 0 0 0 3px rgba(232, 150, 58, 0.35), 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .card-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(232, 150, 58, 0.15);
+      color: #E8963A;
+      border: 1px solid rgba(232, 150, 58, 0.3);
+    }
+    .card-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0B1320;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .design-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .design-card p {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.5;
+      margin: 0 0 16px;
+      flex: 1;
+    }
+    .select-btn {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      background: #1E293B;
+      color: #F8FAFC;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .design-card.active .select-btn {
+      background: #E8963A;
+      color: #101C2C;
+    }
+    .floating-preview-hint {
+      position: fixed;
+      bottom: 110px;
+      right: 32px;
+      background: #1E293B;
+      border: 1px solid #E8963A;
+      color: #F8FAFC;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatHint 2s infinite ease-in-out;
+    }
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-header">
+    <span style="font-size:12px;font-weight:700;letter-spacing:1px;color:#E8963A;text-transform:uppercase;">Marine Lumber Co. &middot; Design Testing Suite</span>
+    <h1 style="font-size:28px;font-weight:800;color:#fff;margin:8px 0 12px;">AI 聊天机器人头像方案 · 实机交互比对</h1>
+    <p style="font-size:15px;color:#94A3B8;max-width:800px;margin:0 auto;line-height:1.6;">
+      针对您要求的<strong>“卡通形象能否兼顾 AI 聊天与工业严肃感”</strong>，我们新增了 2 款高水准 3D 卡通吉祥物设计！<br>
+      👇 <strong>点击下方任意卡片，右下角的真实浮动按钮与展开窗口头像立即联动切换</strong>，您可以亲自测试体验：
+    </p>
+  </div>
+
+  <div class="design-grid">
+
+    <!-- Option A: TimberBot (Cartoon Robot Mascot) -->
+    <div class="design-card active" onclick="switchDesign('A')" id="cardA">
+      <span class="card-badge" style="background:rgba(16,185,129,0.15);color:#34D399;border-color:rgba(16,185,129,0.3)">🌟 卡通首选</span>
+      <div class="card-img-wrap">
+        <img src="assets/img/preview-designs/timberbot.svg" alt="TimberBot">
+      </div>
+      <h3>【卡通 A】Marine Assistant · 3D 智能包装机器人</h3>
+      <p>
+        <strong>💬 聊天属性：★★★★★ (极强)</strong><br>
+        配备<strong>专业通话耳麦 + 降噪话筒 + 工业黄色安全护目帽 + 对话气泡</strong>。
+        陶瓷白与深海蓝高科技质感，深色底与网站色调完全统一，100% 诚实宣布“我是 AI 助手”，亲和力与科技感兼备，欧美大厂主流风格。
+      </p>
+      <button class="select-btn" type="button">✓ 右下角正在预览此方案</button>
+    </div>
+
+    <!-- Option B: Cratey (Wooden Box Mascot) -->
+    <div class="design-card" onclick="switchDesign('B')" id="cardB">
+      <span class="card-badge" style="background:rgba(245,158,11,0.15);color:#FBBF24;border-color:rgba(245,158,11,0.3)">📦 木箱造型</span>
+      <div class="card-img-wrap">
+        <img src="assets/img/preview-designs/cratey.svg" alt="Cratey">
+      </div>
+      <h3>【卡通 B】Marine Assistant · 拟人化木箱造型</h3>
+      <p>
+        <strong>💬 聊天属性：★★★★★ (极强)</strong><br>
+        将公司的核心产品<strong>“定制重型木箱”</strong>拟人化！配有通话耳麦、话筒、数码发光眼睛、挥手小手套与 AI 气泡，形象极其鲜明直观。
+      </p>
+      <button class="select-btn" type="button">点击切换至右下角预览</button>
+    </div>
+
+    <!-- Option C: Elena Vance (Human Specialist) -->
+    <div class="design-card" onclick="switchDesign('C')" id="cardC">
+      <span class="card-badge">当前已上线</span>
+      <div class="card-img-wrap">
+        <img src="assets/img/preview-designs/option1-elena.jpg" alt="Elena Vance">
+      </div>
+      <h3>【写实 C】Elena Vance · 白西装通话客服</h3>
+      <p>
+        <strong>💬 聊天属性：★★★★★ (极强)</strong><br>
+        欧美专业客服形象，纯白职业装 + 话务耳麦话筒。传统外贸感强，但在技术工程师眼中可能会联想到虚拟生成模特。
+      </p>
+      <button class="select-btn" type="button">点击切换至右下角预览</button>
+    </div>
+
+    <!-- Option D: AI Blueprint Crate (Tech Shield) -->
+    <div class="design-card" onclick="switchDesign('D')" id="cardD">
+      <span class="card-badge" style="background:rgba(59,130,246,0.15);color:#60A5FA;border-color:rgba(59,130,246,0.3)">科技盾徽</span>
+      <div class="card-img-wrap">
+        <img src="assets/img/preview-designs/option2-ai-crate.jpg" alt="AI Blueprint Crate">
+      </div>
+      <h3>【徽章 D】AI 蓝图箱体 · 3D 智能工程盾徽</h3>
+      <p>
+        <strong>💬 聊天属性：★★★★☆ (强)</strong><br>
+        微光发光的 3D 蓝图箱体 + AI 芯片回路。纯工业软件 CAD 科技范，偏向工具类质感，庄重严肃。
+      </p>
+      <button class="select-btn" type="button">点击切换至右下角预览</button>
+    </div>
+
+  </div>
+
+  <div class="floating-preview-hint">
+    👇 看右下角：可点击展开测试实际聊天视觉效果！
+  </div>
+
+  <!-- Load Chatbot Widget Script -->
+  <script src="assets/js/chatbot.js?v=20261009_preview2"></script>
+
+  <script>
+    var designs = {
+      'A': {
+        img: 'assets/img/preview-designs/timberbot.svg',
+        name: 'Marine Assistant',
+        role: 'AI Packaging Specialist'
+      },
+      'B': {
+        img: 'assets/img/preview-designs/cratey.svg',
+        name: 'MarineLumber AI Assistant',
+        role: 'AI Packaging Specialist'
+      },
+      'C': {
+        img: 'assets/img/preview-designs/option1-elena.jpg',
+        name: 'Marine Assistant',
+        role: 'AI Packaging Specialist'
+      },
+      'D': {
+        img: 'assets/img/preview-designs/option2-ai-crate.jpg',
+        name: 'Marine Assistant',
+        role: 'Packaging Engineering Desk'
+      }
+    };
+
+    function switchDesign(key) {
+      var keys = ['A', 'B', 'C', 'D'];
+      keys.forEach(function(k) {
+        var card = document.getElementById('card' + k);
+        var btn = card.querySelector('.select-btn');
+        if (k === key) {
+          card.classList.add('active');
+          btn.textContent = '✓ 右下角正在预览此方案';
+        } else {
+          card.classList.remove('active');
+          btn.textContent = '点击切换至右下角预览';
+        }
+      });
+
+      var d = designs[key];
+      // Update trigger avatar
+      var triggerImg = document.querySelector('.mlc-trigger-avatar img');
+      if (triggerImg) triggerImg.src = d.img;
+
+      // Update window header avatar
+      var whImg = document.querySelector('.mlc-wh-avatar img');
+      if (whImg) whImg.src = d.img;
+
+      // Update header info text
+      var h4 = document.querySelector('.mlc-wh-info h4');
+      if (h4) h4.textContent = d.name;
+      var p = document.querySelector('.mlc-wh-info p');
+      if (p) p.innerHTML = '<span class="dot"></span> ' + d.role + ' &middot; Marine Lumber Co.';
+
+      // Update bubble author
+      var bAuth = document.querySelector('.mlc-bubble-author strong');
+      if (bAuth) bAuth.innerHTML = d.name + ' &middot; ' + d.role;
+    }
+
+    // Set initial default to TimberBot A
+    setTimeout(function() {
+      switchDesign('A');
+    }, 100);
+  </script>
+</body>
+</html>

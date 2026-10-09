@@ -4,7 +4,7 @@
 window.MLC_CHAT_CONFIG = {
   // VPS AI 真实后端接口
   vpsEndpoint: "https://0230.ccwu.cc/api/chat", 
-  specialistName: "Elena Vance",
+  specialistName: "MarineLumber AI Assistant",
   specialistRole: "AI Packaging Specialist",
   phone: "+1 (503) 692-4150",
   whatsappUrl: "https://wa.me/15036924150?text=Hello%20Marine%20Lumber%20Co.%2C%20I%20have%20a%20packaging%20inquiry%3A",
@@ -18,8 +18,8 @@ window.MLC_CHAT_CONFIG = {
   var isSub = path.includes('/products/') || path.includes('/industries/');
   var imgPrefix = isSub ? '../assets/img/' : 'assets/img/';
   var rfqUrl = (isSub ? '../' : '') + 'request-a-quote.html';
-  var avatarSrc = imgPrefix + 'support-specialist.webp?v=20261009_whitesuit_final';
-  var avatarFallback = imgPrefix + 'support-specialist.jpg?v=20261009_whitesuit_final';
+  var avatarSrc = imgPrefix + 'support-specialist.webp?v=20261009_cratey_v2';
+  var avatarFallback = imgPrefix + 'support-specialist.jpg?v=20261009_cratey_v2';
 
   var conversationHistory = [];
 
@@ -37,7 +37,7 @@ window.MLC_CHAT_CONFIG = {
     '</div>',
 
     '<!-- Floating Specialist Avatar Trigger -->',
-    '<div class="mlc-chat-trigger" id="mlcChatTrigger" role="button" tabindex="0" aria-label="Chat with Elena, Technical Packaging Assistant">',
+    '<div class="mlc-chat-trigger" id="mlcChatTrigger" role="button" tabindex="0" aria-label="Chat with MarineLumber AI Assistant">',
     '  <div class="mlc-trigger-avatar">',
     '    <img src="' + avatarSrc + '" onerror="this.src=\'' + avatarFallback + '\'" alt="' + window.MLC_CHAT_CONFIG.specialistName + '" width="62" height="62" loading="lazy">',
     '  </div>',
@@ -105,7 +105,7 @@ window.MLC_CHAT_CONFIG = {
 
   var isOpen = false;
   var hasGreeted = false;
-  var welcomeText = "Hello! I'm Elena, Marine Lumber's packaging specialist assistant. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?";
+  var welcomeText = "Hello! I'm MarineLumber AI Assistant, your dedicated packaging specialist. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?";
 
   // Auto trigger friendly bubble greeting after 3.8s (clean without fake badge)
   var seenPrompt = sessionStorage.getItem('mlc_desk_seen') === 'true';
@@ -234,7 +234,7 @@ window.MLC_CHAT_CONFIG = {
             var fd = new FormData();
             fd.append('email', detectedEmail);
             fd.append('message', qText);
-            fd.append('source', 'Chatbot Lead (Elena)');
+            fd.append('source', 'Chatbot Lead (MarineLumber AI Assistant)');
             fetch('https://formspree.io/f/mqkvrgzy', { method: 'POST', body: fd, headers: {'Accept': 'application/json'} });
           } catch(e){}
 
