@@ -2,9 +2,8 @@
    Marine Lumber Co. — Interactive AI Chatbot (VPS Ready & Client Fallback)
    ========================================================================== */
 window.MLC_CHAT_CONFIG = {
-  // 当你在 VPS 上训练或部署好你的 AI 服务（如 FastAPI / Ollama / DeepSeek / LLM API）后，
-  // 网页端即可自动直通真实 VPS AI 对话！
-  vpsEndpoint: "https://api-marine.chenbridge.com/api/chat", 
+  // VPS AI 真实后端接口
+  vpsEndpoint: "https://0230.ccwu.cc/api/chat", 
   specialistName: "Elena Vance",
   specialistRole: "AI Packaging Specialist",
   phone: "+1 (503) 692-4150",
