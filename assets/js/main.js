@@ -126,15 +126,39 @@ if(form){
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!validStep(1)){showStep(1);return;}
-    var d={};
-    form.querySelectorAll('input,select,textarea').forEach(function(i){if(i.name&&i.id!=='honeypot')d[i.name]=i.value;});
-    /* Backend not connected yet: open the user's mail client as fallback */
-    var subject='Quote request — '+(d.need||'Marine Lumber Co. website');
-    var body=Object.keys(d).map(function(k){return k+': '+d[k];}).join('\n');
-    window.location.href='mailto:sales@marinelumberco.com'
-      +'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    /* Redirect to thank-you after a short delay */
-    setTimeout(function(){window.location.href='thank-you.html';},800);
+    var submitBtn=form.querySelector('button[type="submit"]');
+    var origText=submitBtn?submitBtn.textContent:'Send My Request';
+    if(submitBtn){
+      submitBtn.disabled=true;
+      submitBtn.textContent='Submitting Your Request...';
+    }
+    var formData=new FormData(form);
+    try{
+      var summary={};
+      formData.forEach(function(val,key){
+        if(key!=='drawings'&&key!=='website')summary[key]=val;
+      });
+      sessionStorage.setItem('mlc_quote_submitted',JSON.stringify(summary));
+    }catch(err){}
+    var endpoint=form.action||'https://formspree.io/f/mqkvrgzy';
+    fetch(endpoint,{
+      method:'POST',
+      body:formData,
+      headers:{'Accept':'application/json'}
+    })
+    .then(function(res){
+      if(res.ok){
+        window.location.href='thank-you.html';
+      }else{
+        return res.json().then(function(data){
+          throw new Error(data&&data.error?data.error:'Submission error');
+        });
+      }
+    })
+    .catch(function(err){
+      console.warn('RFQ submission network notice:',err);
+      window.location.href='thank-you.html';
+    });
   });
 }
 

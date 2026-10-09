@@ -65,7 +65,26 @@
   <div class="container" style="max-width:680px">
     <div style="width:88px;height:88px;border-radius:50%;background:var(--success);color:#fff;font-size:44px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 28px">✓</div>
     <h1>Thank You for Your Inquiry</h1>
-    <p class="section-sub" style="margin:16px auto 32px;text-align:center">We have received your specifications. A packaging specialist will review your dimensions, handling parameters and logistics requirements and follow up with options and pricing.</p>
+    <p class="section-sub" style="margin:16px auto 24px;text-align:center">We have received your specifications. A packaging specialist will review your dimensions, handling parameters and logistics requirements and follow up with options and pricing.</p>
+    <div id="quoteSummary" style="display:none;background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:20px;margin:0 auto 28px;text-align:left;max-width:540px"></div>
+    <script>
+    try{
+      var raw=sessionStorage.getItem('mlc_quote_submitted');
+      if(raw){
+        var d=JSON.parse(raw);
+        if(d&&d.first_name){
+          var box=document.getElementById('quoteSummary');
+          box.style.display='block';
+          box.innerHTML='<h3 style="font-size:15px;margin-bottom:10px;color:var(--navy-900)">Captured Specifications</h3>'+
+            '<p style="font-size:13.5px;margin:4px 0"><strong>Contact:</strong> '+(d.first_name+' '+(d.last_name||''))+' ('+d.email+')'+(d.company?' &middot; '+d.company:'')+'</p>'+
+            (d.need?'<p style="font-size:13.5px;margin:4px 0"><strong>Product Category:</strong> '+d.need+'</p>':'')+
+            (d.dimensions?'<p style="font-size:13.5px;margin:4px 0"><strong>Dimensions:</strong> '+d.dimensions+'</p>':'')+
+            (d.quantity?'<p style="font-size:13.5px;margin:4px 0"><strong>Quantity / Volume:</strong> '+d.quantity+'</p>':'')+
+            '<p style="font-size:12px;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px">Reference: Routing to packaging engineering team in Tualatin, OR.</p>';
+        }
+      }
+    }catch(e){}
+    </script>
     <p><a class="btn btn-primary" href="products/index.html">Explore All Products</a> <a class="btn btn-outline" href="capabilities.html" style="margin-left:12px">Our Capabilities</a></p>
   </div>
 </section>

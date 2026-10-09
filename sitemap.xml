@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://marinelumberco.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://marinelumberco.com/products/</loc><priority>0.9</priority></url>
-  <url><loc>https://marinelumberco.com/products/custom-wood-crates</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/products/pallets-skids</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/products/dunnage-banding-runners</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/products/lumber-plywood</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/products/building-products</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/industries/</loc><priority>0.9</priority></url>
-  <url><loc>https://marinelumberco.com/industries/machinery-equipment</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/industries/electronics-data-centers</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/industries/energy-ev</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/industries/military-government</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/industries/agriculture</loc><priority>0.7</priority></url>
-  <url><loc>https://marinelumberco.com/industries/building-products</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/capabilities</loc><priority>0.8</priority></url>
-  <url><loc>https://marinelumberco.com/about</loc><priority>0.7</priority></url>
-  <url><loc>https://marinelumberco.com/team</loc><priority>0.6</priority></url>
-  <url><loc>https://marinelumberco.com/faq</loc><priority>0.7</priority></url>
-  <url><loc>https://marinelumberco.com/contact</loc><priority>0.7</priority></url>
-  <url><loc>https://marinelumberco.com/request-a-quote</loc><priority>0.9</priority></url>
-  <url><loc>https://marinelumberco.com/terms-and-conditions</loc><priority>0.5</priority></url>
+  <url><loc>https://marinelumberco.com/products/index.html</loc><priority>0.9</priority></url>
+  <url><loc>https://marinelumberco.com/products/custom-wood-crates.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/products/pallets-skids.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/products/dunnage-banding-runners.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/products/lumber-plywood.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/products/building-products.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/industries/index.html</loc><priority>0.9</priority></url>
+  <url><loc>https://marinelumberco.com/industries/machinery-equipment.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/industries/electronics-data-centers.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/industries/energy-ev.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/industries/military-government.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/industries/agriculture.html</loc><priority>0.7</priority></url>
+  <url><loc>https://marinelumberco.com/industries/building-products.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/capabilities.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marinelumberco.com/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://marinelumberco.com/team.html</loc><priority>0.6</priority></url>
+  <url><loc>https://marinelumberco.com/faq.html</loc><priority>0.7</priority></url>
+  <url><loc>https://marinelumberco.com/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://marinelumberco.com/request-a-quote.html</loc><priority>0.9</priority></url>
+  <url><loc>https://marinelumberco.com/terms-and-conditions.html</loc><priority>0.5</priority></url>
 </urlset>
