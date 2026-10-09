@@ -18,8 +18,8 @@ window.MLC_CHAT_CONFIG = {
   var isSub = path.includes('/products/') || path.includes('/industries/');
   var imgPrefix = isSub ? '../assets/img/' : 'assets/img/';
   var rfqUrl = (isSub ? '../' : '') + 'request-a-quote.html';
-  var avatarSrc = imgPrefix + 'support-specialist.webp?v=20261009_white';
-  var avatarFallback = imgPrefix + 'support-specialist.jpg?v=20261009_white';
+  var avatarSrc = imgPrefix + 'support-specialist.webp?v=20261009_whitesuit_final';
+  var avatarFallback = imgPrefix + 'support-specialist.jpg?v=20261009_whitesuit_final';
 
   var conversationHistory = [];
 
