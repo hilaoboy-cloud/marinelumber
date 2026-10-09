@@ -375,7 +375,7 @@ nav[aria-label="Main navigation"] { margin-left: auto; }
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-.hero-rotator { position: relative; min-height: 220px; }
+.hero-rotator { position: relative; min-height: 275px; }
 .hero-slide { display: none; }
 .hero-slide.is-active { display: block; animation: heroFade .45s ease; }
 .hero-slide h1, .hero-slide .hero-h1 {
@@ -1132,6 +1132,12 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
   section { padding: 56px 0; }
   h1 { font-size: 36px; line-height: 1.15; }
   h2 { font-size: 28px; line-height: 1.25; }
+  .hero-rotator { min-height: 230px; }
+  .hero-slide h1, .hero-slide .hero-h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
   .utility-bar { display: none; }
   .nav-links {
     position: fixed;
@@ -1174,6 +1180,14 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .spec-grid { grid-template-columns: 1fr; gap: 18px; }
   .feat-list { grid-template-columns: 1fr; }
   .final-cta h2 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero-rotator { min-height: 250px; }
+  .hero-slide h1, .hero-slide .hero-h1 {
+    font-size: 27px;
+    line-height: 1.18;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
