@@ -98,9 +98,14 @@ window.MLC_CHAT_CONFIG = {
   var hasGreeted = false;
   var welcomeText = "Hello! I'm MarineLumber AI Assistant, your dedicated packaging specialist. I can calculate crate estimates, check ISPM-15 export rules, or quote cut lumber across our USA, Brazil &amp; China plants.<br><br>What are you shipping or building today?";
 
-  // 2.5 秒后平滑滑入出现 (2-3秒黄金区间)
+  // 2.5 秒后滑入完全出现，展示 1.8 秒后轻微贴边收起，鼠标悬停时立即完全滑出
   setTimeout(function() {
-    if (trigger) trigger.classList.add('visible');
+    if (trigger) {
+      trigger.classList.add('visible', 'peek-out');
+      setTimeout(function() {
+        trigger.classList.remove('peek-out');
+      }, 1800);
+    }
   }, 2500);
 
   function openChat() {

@@ -1216,14 +1216,19 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
   overflow: hidden;
 }
 .mlc-side-tab.visible {
-  transform: translateY(-50%) translateX(0);
-  opacity: 1;
+  transform: translateY(-50%) translateX(14px);
+  opacity: 0.95;
   pointer-events: auto;
 }
-.mlc-side-tab.visible:hover {
-  width: 48px;
+.mlc-side-tab.visible.peek-out {
+  transform: translateY(-50%) translateX(0);
+}
+.mlc-side-tab.visible:hover,
+.mlc-side-tab.visible:focus-within {
+  transform: translateY(-50%) translateX(0) !important;
+  opacity: 1;
   background: #0369A1;
-  box-shadow: -6px 10px 28px rgba(0, 0, 0, 0.6);
+  box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.65);
 }
 .mlc-side-tab-inner {
   position: absolute;

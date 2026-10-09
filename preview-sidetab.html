@@ -121,13 +121,19 @@
       overflow: hidden;
     }
     .mlc-side-tab.visible {
-      transform: translateY(-50%) translateX(0);
-      opacity: 1;
+      transform: translateY(-50%) translateX(14px);
+      opacity: 0.95;
       pointer-events: auto;
     }
-    .mlc-side-tab.visible:hover {
-      width: 48px;
-      box-shadow: -6px 10px 28px rgba(0, 0, 0, 0.6);
+    .mlc-side-tab.visible.peek-out {
+      transform: translateY(-50%) translateX(0);
+    }
+    .mlc-side-tab.visible:hover,
+    .mlc-side-tab.visible:focus-within {
+      transform: translateY(-50%) translateX(0) !important;
+      opacity: 1;
+      background: #0369A1;
+      box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.65);
     }
 
     /* Style Variations */
@@ -366,11 +372,14 @@
       }
     }
 
-    // 2.5 秒后平滑滑入出现 (2-3秒黄金时间)
+    // 2.5 秒后完全滑出，展示 1.8 秒后轻微自动贴边收起，鼠标悬停时完全滑出
     function triggerEntrance() {
-      sideTab.classList.remove('visible');
+      sideTab.classList.remove('visible', 'peek-out');
       setTimeout(function() {
-        sideTab.classList.add('visible');
+        sideTab.classList.add('visible', 'peek-out');
+        setTimeout(function() {
+          sideTab.classList.remove('peek-out');
+        }, 1800);
       }, 2500); // 2.5s 延迟
     }
 
