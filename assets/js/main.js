@@ -234,7 +234,7 @@ if(mini){
 try {
   var cs = document.createElement('script');
   var isSub = window.location.pathname.includes('/products/') || window.location.pathname.includes('/industries/');
-  cs.src = (isSub ? '../' : '') + 'assets/js/chatbot.js';
+  cs.src = (isSub ? '../' : '') + 'assets/js/chatbot.js?v=20261009_v2';
   cs.defer = true;
   document.body.appendChild(cs);
 } catch(e) {}
