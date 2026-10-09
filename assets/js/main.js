@@ -205,4 +205,15 @@ if(mini){
   rot.addEventListener('mouseleave',start);
   start();
 })();
+
+/* Live Chat Specialist Widget (AI Ready) */
+try {
+  var cs = document.createElement('script');
+  var isSub = window.location.pathname.includes('/products/') || window.location.pathname.includes('/industries/');
+  cs.src = (isSub ? '../' : '') + 'assets/js/chatbot.js';
+  cs.defer = true;
+  document.body.appendChild(cs);
+} catch(e) {}
+
 })();
+
