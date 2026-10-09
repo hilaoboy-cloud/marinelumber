@@ -138,7 +138,7 @@ if(form){
   });
 }
 
-/* Prefill RFQ from URL params (?product= / ?ship=) */
+/* Prefill RFQ from URL params (?product= / ?ship=) and sessionStorage */
 (function(){
   try{
     var q=new URLSearchParams(window.location.search);
@@ -146,6 +146,14 @@ if(form){
     if(prod){var sel=document.querySelector('select[name="need"]');
       if(sel){for(var i=0;i<sel.options.length;i++){if(sel.options[i].text.toLowerCase().indexOf(prod.toLowerCase().split(' ')[0])>-1){sel.selectedIndex=i;break;}}}}
     if(ship){var notes=document.querySelector('textarea[name="notes"]');if(notes&&!notes.value)notes.value='What are you shipping? '+ship;}
+    
+    /* Populate from secure sessionStorage */
+    var sName=sessionStorage.getItem('rfq_name');
+    var sEmail=sessionStorage.getItem('rfq_email');
+    var sShip=sessionStorage.getItem('rfq_ship');
+    if(sName){var nInp=document.querySelector('input[name="name"]');if(nInp&&!nInp.value)nInp.value=sName;sessionStorage.removeItem('rfq_name');}
+    if(sEmail){var eInp=document.querySelector('input[name="email"]');if(eInp&&!eInp.value)eInp.value=sEmail;sessionStorage.removeItem('rfq_email');}
+    if(sShip&&!ship){var notes2=document.querySelector('textarea[name="notes"]');if(notes2&&!notes2.value)notes2.value='What are you shipping? '+sShip;sessionStorage.removeItem('rfq_ship');}
   }catch(e){}
 })();
 
@@ -154,8 +162,16 @@ var mini=document.getElementById('miniCta');
 if(mini){
   mini.addEventListener('submit',function(e){
     e.preventDefault();
-    var q=mini.querySelector('input[name="ship"]').value||'';
-    window.location.href='request-a-quote.html?ship='+encodeURIComponent(q);
+    var shipInp=mini.querySelector('input[name="ship"]');
+    var nameInp=mini.querySelector('input[name="name"]');
+    var emailInp=mini.querySelector('input[name="email"]');
+    try{
+      if(nameInp&&nameInp.value)sessionStorage.setItem('rfq_name',nameInp.value);
+      if(emailInp&&emailInp.value)sessionStorage.setItem('rfq_email',emailInp.value);
+      if(shipInp&&shipInp.value)sessionStorage.setItem('rfq_ship',shipInp.value);
+    }catch(err){}
+    var q=(shipInp&&shipInp.value)?'?ship='+encodeURIComponent(shipInp.value):'';
+    window.location.href='request-a-quote.html'+q;
   });
 }
 
