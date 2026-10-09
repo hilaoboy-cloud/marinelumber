@@ -3,9 +3,8 @@
    ========================================================================== */
 window.MLC_CHAT_CONFIG = {
   // 当你在 VPS 上训练或部署好你的 AI 服务（如 FastAPI / Ollama / DeepSeek / LLM API）后，
-  // 只需将这里的 vpsEndpoint 设为你的接口地址（例如 "https://ai.yourdomain.com/api/chat"）
-  // 网页端即可无缝切换为真实 VPS AI 对话！
-  vpsEndpoint: null, 
+  // 网页端即可自动直通真实 VPS AI 对话！
+  vpsEndpoint: "https://api-marine.chenbridge.com/api/chat", 
   specialistName: "Elena Vance",
   specialistRole: "AI Packaging Specialist",
   phone: "+1 (503) 692-4150",
@@ -212,9 +211,50 @@ window.MLC_CHAT_CONFIG = {
 
     setTyping(true);
 
-    // =========================================================================
-    // 1. VPS AI Endpoint Mode (当你在 VPS 上架设好 AI 后，自动调用)
-    // =========================================================================
+    function processClientReply(qText) {
+      setTimeout(function() {
+        setTyping(false);
+        var q = qText.toLowerCase();
+        var reply = "";
+
+        // Check if user provided email or dimensions
+        var emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/;
+        var hasEmail = emailRegex.test(qText);
+
+        if (hasEmail) {
+          var detectedEmail = qText.match(emailRegex)[0];
+          try {
+            var fd = new FormData();
+            fd.append('email', detectedEmail);
+            fd.append('message', qText);
+            fd.append('source', 'Chatbot Lead (Elena)');
+            fetch('https://formspree.io/f/mqkvrgzy', { method: 'POST', body: fd, headers: {'Accept': 'application/json'} });
+          } catch(e){}
+
+          reply = "✓ Thank you! I have logged your email (<strong>" + detectedEmail + "</strong>). Our engineering and estimating desk will review your specifications and follow up within 4 business hours.<br><br>If you need an immediate price right now, feel free to ping us on <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>WhatsApp (+1 503-692-4150)</a>.";
+        } else if (q.includes("crate") || q.includes("box") || q.includes("crating") || q.includes("packaging")) {
+          reply = "We engineer heavy-duty custom crates, knock-down containers, and commercial storage packaging tailored for industrial machinery, semiconductors, and power equipment.<br><br>• Built to exact BOM specs<br>• High-volume production or single prototypes<br>• Fully ISPM-15 compliant on request<br><br>👉 You can submit drawings on our <a href='" + rfqUrl + "' style='color:#E8963A;font-weight:700;text-decoration:underline'>2-Step RFQ Form</a> or type your cargo dimensions here!";
+        } else if (q.includes("lumber") || q.includes("plywood") || q.includes("cut") || q.includes("timber")) {
+          reply = "We operate automated high-speed sawing and dimensioning lines in Sherwood (USA), Santa Catarina (Brazil), and Qingdao (China). We supply cut-to-size softwood, hardwood, and industrial plywood panels.<br><br>What thickness, dimensions, or monthly board-footage are you looking for?";
+        } else if (q.includes("pallet") || q.includes("skid") || q.includes("runner") || q.includes("dunnage")) {
+          reply = "We manufacture custom 2-way and 4-way heavy machinery skids, heat-treated export pallets, grooved dunnage, and pipe chocks engineered to withstand up to 80,000+ lbs dynamic transit loads.<br><br>Would you like standard 48x40 sizes or custom dimensions?";
+        } else if (q.includes("ispm") || q.includes("export") || q.includes("heat treat") || q.includes("phytosanitary") || q.includes("stamp")) {
+          reply = "Yes! All solid wood packaging for export is kiln heat-treated (56°C core for 30 minutes) and stamped with compliant ISPM 15 markings audited by ALSC, ensuring zero customs holds at global ocean ports.";
+        } else if (q.includes("call") || q.includes("phone") || q.includes("speak") || q.includes("engineer") || q.includes("human") || q.includes("contact")) {
+          reply = "You can speak directly with our engineering and sales specialists right away:<br><br>📞 <strong>Phone:</strong> <a href='tel:+15036924150' style='color:#E8963A;font-weight:700'>+1 (503) 692-4150</a> (Mon–Fri 7am–4:30pm PST)<br>💬 <strong>WhatsApp:</strong> <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>Chat on WhatsApp</a><br>✉️ <strong>Email:</strong> <a href='mailto:sales@marinelumberco.com' style='color:#E8963A;font-weight:700'>sales@marinelumberco.com</a>";
+        } else if (q.includes("price") || q.includes("quote") || q.includes("cost") || q.includes("how much")) {
+          reply = "Because industrial crating and processed timber are engineered to your specific weight, destination, and dimensions, our engineers provide custom bulk quotes for the best pricing.<br><br>👉 Please type your <strong>length x width x height</strong>, estimated weight, and an email address here, or fill our <a href='" + rfqUrl + "' style='color:#E8963A;font-weight:700;text-decoration:underline'>Quick RFQ page</a>!";
+        } else if (q.includes("hi") || q.includes("hello") || q.includes("hey")) {
+          reply = "Hello! Nice to meet you. Are you looking for custom crating, pallets, or processed lumber today? Feel free to ask me anything or share your project requirements.";
+        } else {
+          reply = "Thanks for your question! I've noted that for our engineering desk. To give you accurate pricing and lead times, could you share your dimensions, cargo type, or your work email? Alternatively, feel free to message our team on <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>WhatsApp</a>!";
+        }
+
+        appendElenaMessage(reply);
+      }, 750);
+    }
+
+    // Try VPS AI Endpoint first
     if (window.MLC_CHAT_CONFIG && window.MLC_CHAT_CONFIG.vpsEndpoint) {
       fetch(window.MLC_CHAT_CONFIG.vpsEndpoint, {
         method: 'POST',
@@ -227,60 +267,23 @@ window.MLC_CHAT_CONFIG = {
       .then(function(res) { return res.json(); })
       .then(function(data) {
         setTyping(false);
-        var reply = data.reply || data.response || data.message || "Thank you. Our engineering desk has logged your specifications.";
-        appendElenaMessage(reply);
+        var reply = data.reply || data.response || data.message || "";
+        if (reply.indexOf('LEAD_SUMMARY') !== -1) {
+          reply = reply.split('LEAD_SUMMARY')[0].trim();
+        }
+        if (reply) {
+          appendElenaMessage(reply);
+        } else {
+          processClientReply(query);
+        }
       })
       .catch(function() {
-        setTyping(false);
-        appendElenaMessage("I had trouble reaching our AI cluster momentarily. You can chat with us instantly on <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>WhatsApp</a> or call <a href='tel:+15036924150' style='color:#E8963A;font-weight:700'>+1 (503) 692-4150</a>.");
+        processClientReply(query);
       });
       return;
     }
 
-    // =========================================================================
-    // 2. Client-Side High-Precision Knowledge Base Simulation (当前本地就绪模式)
-    // =========================================================================
-    setTimeout(function() {
-      setTyping(false);
-      var q = query.toLowerCase();
-      var reply = "";
-
-      // Check if user provided email or dimensions
-      var emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/;
-      var hasEmail = emailRegex.test(query);
-
-      if (hasEmail) {
-        var detectedEmail = query.match(emailRegex)[0];
-        // Asynchronously post lead to Formspree
-        try {
-          var fd = new FormData();
-          fd.append('email', detectedEmail);
-          fd.append('message', query);
-          fd.append('source', 'Chatbot Lead (Elena)');
-          fetch('https://formspree.io/f/mqkvrgzy', { method: 'POST', body: fd, headers: {'Accept': 'application/json'} });
-        } catch(e){}
-
-        reply = "✓ Thank you! I have logged your email (<strong>" + detectedEmail + "</strong>). Our engineering and estimating desk will review your specifications and follow up within 4 business hours.<br><br>If you need an immediate price right now, feel free to ping us on <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>WhatsApp (+1 503-692-4150)</a>.";
-      } else if (q.includes("crate") || q.includes("box") || q.includes("crating") || q.includes("packaging")) {
-        reply = "We engineer heavy-duty custom crates, knock-down containers, and military lift-vans tailored for industrial machinery, semiconductors, and power equipment.<br><br>• Built to exact BOM & ASTM/MIL-STD specs<br>• High-volume production or single prototypes<br>• Fully ISPM-15 compliant on request<br><br>👉 You can submit drawings on our <a href='" + rfqUrl + "' style='color:#E8963A;font-weight:700;text-decoration:underline'>2-Step RFQ Form</a> or type your cargo dimensions here!";
-      } else if (q.includes("lumber") || q.includes("plywood") || q.includes("cut") || q.includes("timber")) {
-        reply = "We operate automated high-speed sawing and dimensioning lines in Sherwood (USA), Santa Catarina (Brazil), and Qingdao (China). We supply cut-to-size softwood, hardwood, and industrial plywood panels.<br><br>What thickness, dimensions, or monthly board-footage are you looking for?";
-      } else if (q.includes("pallet") || q.includes("skid") || q.includes("runner") || q.includes("dunnage")) {
-        reply = "We manufacture custom 2-way and 4-way heavy machinery skids, heat-treated export pallets, grooved dunnage, and pipe chocks engineered to withstand up to 80,000+ lbs dynamic transit loads.<br><br>Would you like standard 48x40 sizes or custom dimensions?";
-      } else if (q.includes("ispm") || q.includes("export") || q.includes("heat treat") || q.includes("phytosanitary") || q.includes("stamp")) {
-        reply = "Yes! All solid wood packaging for export is kiln heat-treated (56°C core for 30 minutes) and stamped with compliant ISPM 15 markings audited by ALSC, ensuring zero customs holds at global ocean ports.";
-      } else if (q.includes("call") || q.includes("phone") || q.includes("speak") || q.includes("engineer") || q.includes("human") || q.includes("contact")) {
-        reply = "You can speak directly with our engineering and sales specialists right away:<br><br>📞 <strong>Phone:</strong> <a href='tel:+15036924150' style='color:#E8963A;font-weight:700'>+1 (503) 692-4150</a> (Mon–Fri 7am–4:30pm PST)<br>💬 <strong>WhatsApp:</strong> <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>Chat on WhatsApp</a><br>✉️ <strong>Email:</strong> <a href='mailto:sales@marinelumberco.com' style='color:#E8963A;font-weight:700'>sales@marinelumberco.com</a>";
-      } else if (q.includes("price") || q.includes("quote") || q.includes("cost") || q.includes("how much")) {
-        reply = "Because industrial crating and processed timber are engineered to your specific weight, destination, and dimensions, our engineers provide custom bulk quotes for the best pricing.<br><br>👉 Please type your <strong>length x width x height</strong>, estimated weight, and an email address here, or fill our <a href='" + rfqUrl + "' style='color:#E8963A;font-weight:700;text-decoration:underline'>Quick RFQ page</a>!";
-      } else if (q.includes("hi") || q.includes("hello") || q.includes("hey")) {
-        reply = "Hello! Nice to meet you. Are you looking for custom crating, pallets, or processed lumber today? Feel free to ask me anything or share your project requirements.";
-      } else {
-        reply = "Thanks for your question! I've noted that for our engineering desk. To give you accurate pricing and lead times, could you share your dimensions, cargo type, or your work email? Alternatively, feel free to message our team on <a href='" + window.MLC_CHAT_CONFIG.whatsappUrl + "' target='_blank' style='color:#25D366;font-weight:700'>WhatsApp</a>!";
-      }
-
-      appendElenaMessage(reply);
-    }, 750);
+    processClientReply(query);
   }
 
   // Handle Form Submission
