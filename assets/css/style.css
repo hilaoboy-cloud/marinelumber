@@ -538,6 +538,22 @@ img.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Product & Industry Split Tiles */
 .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (min-width: 992px) {
+  .tile-grid:has(> .tile:nth-child(5):last-child) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .tile-grid:has(> .tile:nth-child(5):last-child) > .tile:nth-child(1),
+  .tile-grid:has(> .tile:nth-child(5):last-child) > .tile:nth-child(2),
+  .tile-grid:has(> .tile:nth-child(5):last-child) > .tile:nth-child(3) {
+    grid-column: span 2;
+  }
+  .tile-grid:has(> .tile:nth-child(5):last-child) > .tile:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .tile-grid:has(> .tile:nth-child(5):last-child) > .tile:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
 .tile {
   background: #fff;
   border: 1px solid var(--border);
