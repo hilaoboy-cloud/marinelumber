@@ -340,8 +340,11 @@ nav[aria-label="Main navigation"] { margin-left: auto; }
   text-decoration: none;
 }
 .nav-phone:hover { color: var(--accent) !important; }
-.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--navy-900); margin: 5px 0; border-radius: 1px; transition: .2s; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1000; position: relative; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--navy-900); margin: 5px 0; border-radius: 1px; transition: transform .25s ease, opacity .25s ease; }
+.hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-active span:nth-child(2) { opacity: 0; }
+.hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ==========================================================================
    Hero Section — Cinematic, Industrial, Authoritative
@@ -1166,24 +1169,6 @@ img.photo-img { width: 100%; height: auto; object-fit: cover; display: block; fl
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-.nav-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 25, 47, 0.65);
-  backdrop-filter: blur(2px);
-  z-index: 210;
-  opacity: 0;
-  transition: opacity .25s ease;
-}
-.nav-backdrop.active {
-  display: block;
-  opacity: 1;
-}
-body.nav-locked {
-  overflow: hidden;
-}
-
 @media (max-width: 768px) {
   .page-hero { height: auto; min-height: 290px; padding: 48px 0; }
   body { font-size: 16px; }
@@ -1207,9 +1192,11 @@ body.nav-locked {
     align-items: stretch;
     padding: 80px 24px 24px;
     gap: 4px;
-    z-index: 220;
+    z-index: 999;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.5);
     transition: right .25s ease;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-links.open { right: 0; }
   .nav-links a.nav-top { padding: 12px 10px; font-size: 16px; color: #fff; }

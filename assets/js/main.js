@@ -14,30 +14,29 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 /* Mobile menu */
 var burger=document.getElementById('hamburger'),nav=document.getElementById('navLinks');
 if(burger&&nav){
-  var backdrop=document.createElement('div');
-  backdrop.className='nav-backdrop';
-  document.body.appendChild(backdrop);
-
   function closeMenu(){
     nav.classList.remove('open');
+    burger.classList.remove('is-active');
     burger.setAttribute('aria-expanded','false');
-    backdrop.classList.remove('active');
-    document.body.classList.remove('nav-locked');
   }
 
   function openMenu(){
     nav.classList.add('open');
+    burger.classList.add('is-active');
     burger.setAttribute('aria-expanded','true');
-    backdrop.classList.add('active');
-    document.body.classList.add('nav-locked');
   }
 
-  burger.addEventListener('click',function(){
+  burger.addEventListener('click',function(e){
+    e.stopPropagation();
     var isOpen=nav.classList.contains('open');
     if(isOpen) closeMenu(); else openMenu();
   });
 
-  backdrop.addEventListener('click',closeMenu);
+  document.addEventListener('click',function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)){
+      closeMenu();
+    }
+  });
 
   nav.addEventListener('click',function(e){
     var top=e.target.closest('a.nav-top');
