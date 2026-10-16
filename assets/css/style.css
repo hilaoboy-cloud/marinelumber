@@ -1166,6 +1166,24 @@ img.photo-img { width: 100%; height: auto; object-fit: cover; display: block; fl
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 210;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.nav-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+body.nav-locked {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .page-hero { height: auto; min-height: 290px; padding: 48px 0; }
   body { font-size: 16px; }
@@ -1189,6 +1207,7 @@ img.photo-img { width: 100%; height: auto; object-fit: cover; display: block; fl
     align-items: stretch;
     padding: 80px 24px 24px;
     gap: 4px;
+    z-index: 220;
     transition: right .25s ease;
     overflow-y: auto;
   }
